@@ -1,4 +1,5 @@
 pipeline {
+    agent any
     stages {
          stage('编译') { 
              steps {

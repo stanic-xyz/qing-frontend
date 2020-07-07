@@ -15,9 +15,20 @@
         </div>
       </a>
     </div>
+  </div>
 </template>
 <script>
 export default {
-  name: 'Header'
+  name: 'MyHeader',
+  data() {
+    return {
+      'time': new Date()
+    }
+  },
+  methods: {
+    create: function() {
+      console.log(this.time)
+    }
+  }
 }
 </script>

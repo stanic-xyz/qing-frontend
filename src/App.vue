@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-   <header>this is好dead</header>
+    <MyHdeader/>
+    <header>this is好dead</header>
     <!-- 路由出口 -->
     <!-- 路由匹配到的组件将渲染在这里 -->
     <router-view></router-view>
@@ -9,8 +10,12 @@
 
 <script>
 import request from './utils/request'
+import MyHdeader from './views/common/Header'
 export default {
   name: 'App',
+  components: {
+    MyHdeader
+  },
   data() {
     console.log(request)
     return {

@@ -28,7 +28,7 @@ import moment from 'moment'
 moment.locale('zh-cn')
 
 export default {
-  data () {
+  data() {
     return {
       advanced: false,
       dataSource: [],
@@ -45,7 +45,7 @@ export default {
     }
   },
   computed: {
-    columns () {
+    columns() {
       return [
         {
           title: '请求时间',
@@ -59,16 +59,16 @@ export default {
           dataIndex: 'request.method',
           customRender: (text, row, index) => {
             switch (text) {
-              case 'GET':
-                return <a-tag color="#87d068">{text}</a-tag>
-              case 'POST':
-                return <a-tag color="#2db7f5">{text}</a-tag>
-              case 'PUT':
-                return <a-tag color="#ffba5a">{text}</a-tag>
-              case 'DELETE':
-                return <a-tag color="#f50">{text}</a-tag>
-              default:
-                return text
+            case 'GET':
+              return <a-tag color="#87d068">{text}</a-tag>
+            case 'POST':
+              return <a-tag color="#2db7f5">{text}</a-tag>
+            case 'PUT':
+              return <a-tag color="#ffba5a">{text}</a-tag>
+            case 'DELETE':
+              return <a-tag color="#f50">{text}</a-tag>
+            default:
+              return text
             }
           },
           filters: [
@@ -124,17 +124,17 @@ export default {
       ]
     }
   },
-  mounted () {
+  mounted() {
     this.fetch()
   },
   methods: {
-    search () {
+    search() {
       this.fetch()
     },
-    handleTableChange (pagination, filters, sorter) {
+    handleTableChange(pagination, filters, sorter) {
       this.fetch()
     },
-    fetch () {
+    fetch() {
       this.loading = true
       this.$get('actuator/httptrace').then(r => {
         let data = r.data

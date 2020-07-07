@@ -9,5 +9,5 @@ let GLOABLE_REQUEST = axios.create({
 const request = {
 
 }
-console.log(GLOABLE_REQUEST)
+console.log(GLOABLE_REQUEST.length)
 export default request

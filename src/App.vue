@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <MyHdeader/>
-    <header>this is好dead</header>
     <!-- 路由出口 -->
     <!-- 路由匹配到的组件将渲染在这里 -->
     <router-view></router-view>
@@ -24,12 +23,10 @@ export default {
     }
   },
   created() {
-    console.log(request)
+    request.get('/test', {'name': 'stan'})
   },
   methods: {
     handleSelect(key, keyPath) {
-      // request.get('authrize/login', {token: 'this is home'})
-      console.log(request)
       console.log(key, keyPath)
     }
   }

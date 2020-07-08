@@ -1,33 +1,47 @@
 <template>
-  <div class="jvm-info">
-    <el-breadcrumb separator-class="el-icon-arrow-right">
-      <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>活动管理</el-breadcrumb-item>
-      <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-      <el-breadcrumb-item>活动详情</el-breadcrumb-item>
-    </el-breadcrumb>
-    <div class="alert" border>
-      <a type="success" :show-icon="true">
-        <div slot="message">
-          <span class="el-icon-info"></span>
-          数据获取时间 {{this.time}}
-          <el-link :underline="false" @click="create" style="margin-left: 24px">点击刷新</el-link>
-        </div>
-      </a>
-    </div>
-  </div>
+  <el-menu
+    :default-active="activeIndex2"
+    class="el-menu-demo"
+    mode="horizontal"
+    @select="handleSelect"
+    background-color="#545c64"
+    text-color="#fff"
+    active-text-color="#ffd04b"
+  >
+    <el-menu-item index="1">处理中心</el-menu-item>
+    <el-submenu index="2">
+      <template slot="title">我的工作台</template>
+      <el-menu-item index="2-1">选项1</el-menu-item>
+      <el-menu-item index="2-2">选项2</el-menu-item>
+      <el-menu-item index="2-3">选项3</el-menu-item>
+      <el-submenu index="2-4">
+        <template slot="title">选项4</template>
+        <el-menu-item index="2-4-1">选项1</el-menu-item>
+        <el-menu-item index="2-4-2">选项2</el-menu-item>
+        <el-menu-item index="2-4-3">选项3</el-menu-item>
+      </el-submenu>
+    </el-submenu>
+    <el-menu-item index="3" disabled>消息中心</el-menu-item>
+    <el-menu-item index="4">
+      <router-link to="bar">订单管理 </router-link>
+    </el-menu-item>
+  </el-menu>
 </template>
 <script>
 export default {
   name: 'MyHeader',
   data() {
     return {
-      'time': new Date()
+      time: new Date(),
+      activeIndex: '1',
+      activeIndex2: '1'
     }
   },
   methods: {
     create: function() {
-      console.log(this.time)
+    },
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath)
     }
   }
 }

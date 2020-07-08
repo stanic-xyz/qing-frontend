@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomePage from '../views/HomePage.vue'
+import Activity from '../views/Activity.vue'
 // 1. 定义 (路由) 组件。
 // 可以从其他文件 import 进来
 const Foo = { template: '<div>foo</div>' }
@@ -14,7 +15,8 @@ const Bar = { template: '<div>bar</div>' }
 const routes = [
   { path: '/foo', component: Foo },
   { path: '/bar', component: Bar },
-  { path: '/home', component: HomePage }
+  { path: '/home', component: HomePage },
+  { path: '/activity', component: Activity }
 ]
 Vue.use(VueRouter)
 // 3. 创建 router 实例，然后传 `routes` 配置

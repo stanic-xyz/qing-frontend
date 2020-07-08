@@ -1,23 +1,18 @@
 <template>
-  <div class="jvm-info">
-    <el-container>
-      <HelloWorld></HelloWorld>
-    </el-container>
-  </div>
+  <!-- <el-calendar v-model="currentDate"></el-calendar> -->
+  <HelloWorld></HelloWorld>
 </template>
 
 <script>
-import HelloWorld from '../components/HelloWorld.vue'
-
+import HelloWorld from '../components/HelloWorld'
 export default {
-  name: 'HelloWorld',
-  components: {
-    HelloWorld
-  },
+  name: 'HomePage',
+  components: { HelloWorld },
   data() {
     return {
       activeIndex: '1',
       activeIndex2: '1',
+      currentDate: new Date(),
       time: '2020年01月15日 21时50分19秒',
       loading: true,
       jvm: {
@@ -56,31 +51,56 @@ export default {
       }
     }
   },
-  mounted() {
-    this.create()
-  },
+  mounted() {},
   methods: {
     handleSelect(key, keyPath) {
       console.log(key, keyPath)
     },
     create() {
-      console.log('this is test')
       this.$notify.success({
         title: 'Info',
         message: '这是一条没有关闭按钮的消息',
         showClose: false
       })
-      // this.$get('actuator', null)
     }
   }
 }
 </script>
 <style>
-.jvm-info {
-  width: 100%;
-}
 .alert {
   text-align: left;
   margin: 10px;
+}
+.jvm-info {
+  width: 100%;
+}
+.time {
+  font-size: 13px;
+  color: #999;
+}
+
+.bottom {
+  margin-top: 13px;
+  line-height: 12px;
+}
+
+.button {
+  padding: 0;
+  float: right;
+}
+
+.image {
+  width: 100%;
+  display: block;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+
+.clearfix:after {
+  clear: both;
 }
 </style>

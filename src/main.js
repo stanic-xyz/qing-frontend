@@ -15,11 +15,11 @@ Vue.use(db)
 Vue.prototype.$post = request.post
 Vue.prototype.$get = request.get
 
-var vm = new Vue({
+// eslint-disable-next-line no-new
+// eslint-disable-next-line no-unused-vars
+let vm = new Vue({
   router,
   el: '#app',
   components: { App },
   template: '<App/>'
 })
-
-console.log(vm.db.get('test'))

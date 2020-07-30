@@ -8,6 +8,14 @@
       <b-icon icon="clock" animation="spin-reverse" font-scale="1"></b-icon>
       <b-badge>这是你的名字</b-badge>
     </div>
+    <iframe
+      width="1280"
+      height="720"
+      src="https://www.youtube.com/embed/ylLOn6KXzAc"
+      frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
     <div>
       <b-iconstack font-scale="2" variant="white">
         <b-icon stacked icon="square-fill" variant="dark"></b-icon>

@@ -1,6 +1,14 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'node:latest' }
+    }
     stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+                sh 'npm --version'
+            }
+        }
          stage('编译') { 
              steps {
                  sh "npm install"

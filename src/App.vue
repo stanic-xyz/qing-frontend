@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <MyHdeader/>
     <!-- 路由出口 -->
     <!-- 路由匹配到的组件将渲染在这里 -->
     <router-view></router-view>
@@ -9,11 +8,12 @@
 
 <script>
 // import request from './utils/request'
-import MyHdeader from './views/common/Header'
+import MyHeader from './views/common/Header'
+
 export default {
   name: 'App',
   components: {
-    MyHdeader
+    MyHeader: MyHeader
   },
   data() {
     return {

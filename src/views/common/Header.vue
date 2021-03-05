@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div>
+    <h1>这里就是标题</h1>
+  </div>
 </template>
 <script>
 export default {
@@ -12,10 +14,14 @@ export default {
     }
   },
   methods: {
-    create: function () {},
+    create: function () {
+    },
     handleSelect(key, keyPath) {
       console.log(key, keyPath)
     }
   }
 }
 </script>
+<style>
+
+</style>

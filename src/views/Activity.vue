@@ -17,8 +17,8 @@
       allowfullscreen
     ></iframe>
     <div v-for="item in mediaList" :key="item.media_id">
-      <el-button class="badge_info">{{item.badge}}</el-button>
-      <el-button size="mini" @click="handleEdit(item.media_id,item.cover)">{{item.media_id}}</el-button>
+      <el-button class="badge_info">{{ item.badge }}</el-button>
+      <el-button size="mini" @click="handleEdit(item.media_id,item.cover)">{{ item.media_id }}</el-button>
       <div>
         <b-img :src="item.cover" fluid alt="Responsive image"></b-img>
       </div>

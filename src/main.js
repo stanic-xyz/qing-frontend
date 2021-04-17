@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import less from 'less'
 
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -18,6 +19,7 @@ import db from './utils/localstorage'
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
+Vue.use(less)
 
 Vue.config.productionTip = false
 Vue.use(Element, {size: 'small', zIndex: 3000})

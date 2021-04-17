@@ -1,4 +1,4 @@
-import db from 'utils/localstorage'
+import db from '../../utils/localstorage'
 
 export default {
   namespaced: true,
@@ -30,43 +30,43 @@ export default {
     color: db.get('COLOR', 'rgb(24, 144, 255)')
   },
   mutations: {
-    setDevice (state, isMobile) {
+    setDevice(state, isMobile) {
       state.isMobile = isMobile
     },
-    setTheme (state, theme) {
+    setTheme(state, theme) {
       db.save('THEME', theme)
       state.theme = theme
     },
-    setLayout (state, layout) {
+    setLayout(state, layout) {
       db.save('LAYOUT', layout)
       state.layout = layout
     },
-    setMultipage (state, multipage) {
+    setMultipage(state, multipage) {
       db.save('MULTIPAGE', multipage)
       state.multipage = multipage
     },
-    setSidebar (state, type) {
+    setSidebar(state, type) {
       state.sidebar.opened = type
     },
-    fixSiderbar (state, flag) {
+    fixSiderbar(state, flag) {
       db.save('FIX_SIDERBAR', flag)
       state.fixSiderbar = flag
     },
-    fixHeader (state, flag) {
+    fixHeader(state, flag) {
       db.save('FIX_HEADER', flag)
       state.fixHeader = flag
     },
-    setSettingBar (state, flag) {
+    setSettingBar(state, flag) {
       state.settingBar.opened = flag
     },
-    setColor (state, color) {
+    setColor(state, color) {
       db.save('COLOR', color)
       state.color = color
     }
   }
 }
 
-function getBooleanValue (value, defaultValue) {
+function getBooleanValue(value, defaultValue) {
   if (Object.is(value, null)) {
     return defaultValue
   }

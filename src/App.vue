@@ -7,7 +7,7 @@
 </template>
 
 <script>
-// import request from './utils/request'
+import request from './utils/request'
 import MyHeader from './views/common/Header'
 
 export default {
@@ -22,7 +22,7 @@ export default {
     }
   },
   created() {
-    // request.get('/test', {'name': 'stan'})
+    request.get('/test', {'name': 'stan'})
   },
   methods: {
     handleSelect(key, keyPath) {

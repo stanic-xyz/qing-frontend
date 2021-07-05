@@ -9,10 +9,9 @@
       <b-badge>这是你的名字</b-badge>
     </div>
     <iframe
-      width="1280"
-      height="720"
+      width="640"
+      height="360"
       src="https://www.youtube.com/embed/ylLOn6KXzAc"
-      frameborder="0"
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
     ></iframe>
@@ -36,18 +35,20 @@
     </div>
     <div>
       <b-button size="sm" class="mb-2">
-        <b-icon icon="gear-fill" aria-hidden="true"></b-icon>Settings
+        <b-icon icon="gear-fill" aria-hidden="true"></b-icon>
+        Settings
       </b-button>
-      <br />
+      <br/>
       <b-button variant="primary" class="mb-2">
         Pay now
         <b-icon icon="credit-card" aria-hidden="true"></b-icon>
       </b-button>
-      <br />
+      <br/>
       <b-button variant="outline-info" class="mb-2">
-        <b-icon icon="power" aria-hidden="true"></b-icon>Logout
+        <b-icon icon="power" aria-hidden="true"></b-icon>
+        Logout
       </b-button>
-      <br />
+      <br/>
       <b-button size="lg" variant="info" class="mb-2">
         <b-icon icon="question-circle-fill" aria-label="Help"></b-icon>
       </b-button>
@@ -72,14 +73,17 @@ h1,
 h2 {
   font-weight: normal;
 }
+
 ul {
   list-style-type: none;
   padding: 0;
 }
+
 li {
   display: inline-block;
   margin: 0 10px;
 }
+
 a {
   color: #42b983;
 }

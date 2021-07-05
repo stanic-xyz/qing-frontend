@@ -40,8 +40,7 @@ export default {
             text: '会员专享'
           },
           badge_type: 0,
-          cover:
-            'http://i0.hdslb.com/bfs/bangumi/9d9cd5a6a48428fe2e4b6ed17025707696eab47b.png',
+          cover: 'http://i0.hdslb.com/bfs/bangumi/9d9cd5a6a48428fe2e4b6ed17025707696eab47b.png',
           index_show: '全26话',
           is_finish: 1,
           link: 'https://www.bilibili.com/bangumi/play/ss26801',

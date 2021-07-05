@@ -4,10 +4,11 @@
 </template>
 
 <script>
-import HelloWorld from '../components/HelloWorld.vue'
+import HelloWorld from './anime/HelloWorld.vue'
+
 export default {
   name: 'HomePage',
-  components: { HelloWorld },
+  components: {HelloWorld},
   data() {
     return {
       activeIndex: '1',
@@ -51,7 +52,8 @@ export default {
       }
     }
   },
-  mounted() {},
+  mounted() {
+  },
   methods: {
     handleSelect(key, keyPath) {
       console.log(key, keyPath)
@@ -71,9 +73,11 @@ export default {
   text-align: left;
   margin: 10px;
 }
+
 .jvm-info {
   width: 100%;
 }
+
 .time {
   font-size: 13px;
   color: #999;

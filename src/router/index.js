@@ -21,13 +21,30 @@ const routes = [
   {path: '/', component: Index},
   {path: '/ok', component: AnimeInfo},
   {path: '/home', component: HomePage},
-  {path: '/activity', component: Activity},
+  // {path: '/activity', component: Activity},
   {path: '/login', component: Login}
 ]
 
 Vue.use(VueRouter)
 // 3. 创建 router 实例，然后传 `routes` 配置
 // 你还可以传别的配置参数, 不过先这么简单着吧。
+
+const contexts = require.context('../views', true, /\.vue$/)
+contexts.keys().forEach(value => {
+  const path = value.substr(value.indexOf('/'), value.lastIndexOf('.') - 1)
+  const componentLocation = value.substr(value.indexOf('.') + 1, value.lastIndexOf('.') - 1)
+  const componentName = componentLocation.substr(componentLocation.lastIndexOf('/') + 1)
+  console.log({
+    path: path,
+    name: componentName,
+    component: () => import(/* webpackChunkName: "alarm" */ `../views${componentLocation}`)
+  })
+  routes.push({
+    path: path,
+    name: componentName,
+    component: () => import(/* webpackChunkName: "alarm" */ `../views${componentLocation}`)
+  })
+})
 
 const router = new VueRouter({
   // (缩写) 相当于 routes: routes

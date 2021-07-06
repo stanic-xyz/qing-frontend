@@ -1,9 +1,10 @@
 <template>
-    <exception-page type="500" />
+  <exception-page type="500"/>
 </template>
 
 <script>
-import ExceptionPage from '~/exception/ExceptionPage'
+import ExceptionPage from '../exception/ExceptionPage'
+
 export default {
   components: {ExceptionPage}
 }

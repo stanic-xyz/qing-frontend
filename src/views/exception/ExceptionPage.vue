@@ -1,13 +1,15 @@
 <template>
   <div>
-    <div>Redis终端</div>
+    错误也
   </div>
 </template>
+
 <script>
 export default {
-  name: 'RedisTerminal'
+  name: 'ExceptionPage'
 }
 </script>
-<style>
+
+<style scoped>
 
 </style>

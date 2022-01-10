@@ -27,6 +27,11 @@ Vue.use(db)
 Vue.prototype.$post = request.post
 Vue.prototype.$get = request.get
 Vue.config.silent = true
+Vue.directive('title', {
+  inserted: function (el, binding) {
+    document.title = el.dataset.title
+  }
+})
 // eslint-disable-next-line no-new
 // eslint-disable-next-line no-unused-vars
 let vm = new Vue({

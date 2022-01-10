@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomePage from '../views/HomePage.vue'
-import Activity from '../views/Activity.vue'
 import Login from '../views/login/Login'
 import db from '../utils/localstorage'
 import Index from '../views/Index'
@@ -21,7 +20,6 @@ const routes = [
   {path: '/', component: Index},
   {path: '/ok', component: AnimeInfo},
   {path: '/home', component: HomePage},
-  // {path: '/activity', component: Activity},
   {path: '/login', component: Login}
 ]
 
@@ -34,11 +32,6 @@ contexts.keys().forEach(value => {
   const path = value.substr(value.indexOf('/'), value.lastIndexOf('.') - 1)
   const componentLocation = value.substr(value.indexOf('.') + 1, value.lastIndexOf('.') - 1)
   const componentName = componentLocation.substr(componentLocation.lastIndexOf('/') + 1)
-  console.log({
-    path: path,
-    name: componentName,
-    component: () => import(/* webpackChunkName: "alarm" */ `../views${componentLocation}`)
-  })
   routes.push({
     path: path,
     name: componentName,
@@ -48,7 +41,8 @@ contexts.keys().forEach(value => {
 
 const router = new VueRouter({
   // (缩写) 相当于 routes: routes
-  routes
+  mode: 'history',
+  routes: routes
 })
 
 router.beforeEach((to, from, next) => {

@@ -1,6 +1,12 @@
 <template>
-  <div>
-    <h1>这里就是标题</h1>
+  <div id="top">
+    <div id="logo">
+      <a href="/" title="AGE动漫">AGE动漫</a>
+    </div>
+    <div class="loginout">
+      <span class="svg_title svg_title_user"></span>
+      <a id="comment_user" class="loginout_btn2" href="/">登陆</a>
+    </div>
   </div>
 </template>
 <script>

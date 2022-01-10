@@ -1,29 +1,22 @@
 <template>
-  <li :class="{active:isShow}">
-    <a class="auto" @click="toggle">
-            <span class="pull-right text-muted">
-                      <i class="fa fa-fw fa-angle-right text"></i>
-                      <i class="fa fa-fw fa-angle-down text-active"></i>
-                    </span>
-      <i :class="navData.groupIcon"></i>
-      <span>{{ navData.groupName }}</span>
-    </a>
-    <ul class="nav nav-sub dk">
-      <li class="nav-sub-header">
-        <a>
-          <span>{{ navData.groupName }}</span>
-        </a>
-      </li>
-      <slot></slot>
-    </ul>
-  </li>
+
+  <router-link class="nav_button" :class="{nav_button_current: isActive}" :to="navData.route">
+    <span>{{ navData.groupName }}</span>
+  </router-link>
+
 </template>
 <script>
+
 export default {
   name: 'nav-item',
   data() {
     return {
       isShow: this.navData.groupActive
+    }
+  },
+  computed: {
+    isActive() {
+      return this.$route.name !== undefined ? this.$route.path === this.navData.route : false
     }
   },
   props: ['navData'],

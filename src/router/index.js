@@ -5,7 +5,8 @@ import Login from '../views/login/Login'
 import db from '../utils/localstorage'
 import Index from '../views/Index'
 import AnimeInfo from '../views/anime/AnimeInfo'
-// import pages from './page'
+import NotFoundComponent from '../views/error/404'
+
 // 1. 定义 (路由) 组件。
 // 可以从其他文件 import 进来
 const Bar = {template: '<div>bar</div>'}
@@ -20,7 +21,8 @@ const routes = [
   {path: '/', component: Index},
   {path: '/ok', component: AnimeInfo},
   {path: '/home', component: HomePage},
-  {path: '/login', component: Login}
+  {path: '/login', component: Login},
+  {name: 'notfound', path: '*', component: NotFoundComponent}
 ]
 
 Vue.use(VueRouter)

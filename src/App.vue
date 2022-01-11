@@ -1,18 +1,28 @@
 <template>
   <div id="app" v-title :data-title="title">
-    <my-header/>
-    <my-nav title="标题"/>
-    <div class="app-content">
-      <div class="app-content-body">
-        <transition mode="out-in" enter-active-class="animated fadeInUp" leave-active-class="animated fadeInDown">
-          <!-- content -->
-          <!-- 路由匹配到的组件将渲染在这里 -->
-          <router-view></router-view>
-          <!-- /content -->
-        </transition>
+    <template v-if="$route.name!=='notfound'">
+      <my-header/>
+      <my-nav title="标题"/>
+      <div class="app-content">
+        <div class="app-content-body">
+          <transition mode="out-in"
+                      enter-active-class="animated fadeInUp"
+                      leave-active-class="animated fadeInDown">
+            <!-- content -->
+            <!-- 路由匹配到的组件将渲染在这里 -->
+            <router-view></router-view>
+            <!-- /content -->
+          </transition>
+        </div>
       </div>
-    </div>
-    <my-footer/>
+      <my-footer/>
+    </template>
+    <template v-else>
+      <!-- content -->
+      <!-- 未匹配到的路由跳转到这里 -->
+      <router-view></router-view>
+      <!-- /content -->
+    </template>
   </div>
 </template>
 
@@ -37,15 +47,9 @@ export default {
     }
   },
   created() {
-    this.title = '修改后的标题'
-    console.log(request)
-    console.log('created！')
+    this.title = 'BANGUMI'
   },
-  methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath)
-    }
-  }
+  methods: {}
 }
 </script>
 <style>

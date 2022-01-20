@@ -65,7 +65,7 @@
                    :src="anime.coverUrl"
                    :alt="anime.name"
                    :title="anime.playHeat">
-              <span class="anime_icon1_name1">{{ '[TV 01-12]' }}</span>
+              <span class="anime_icon1_name1">{{ '[TV 01-12]ddddd' }}</span>
             </router-link>
             <router-link class="anime_icon1_name_a" :to="{path:'/detail', query: {id:anime.id}}">
               <div class="anime_icon1_name">{{ anime.name }}</div>

@@ -17,7 +17,7 @@ const Bar = {template: '<div>bar</div>'}
 // 或者，只是一个组件配置对象。
 // 我们晚点再讨论嵌套路由。
 const routes = [
-  {path: '/bar', component: Bar},
+  {name: 'bar', path: '/bar', component: Bar},
   {path: '/', component: Index},
   {path: '/ok', component: AnimeInfo},
   {path: '/home', component: HomePage},

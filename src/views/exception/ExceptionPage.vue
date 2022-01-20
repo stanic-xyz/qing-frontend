@@ -10,9 +10,9 @@
                  title="AGE动漫" width="400"/>
           </router-link>
           <hr class="panel-cover__divider">
-          <p class="panel-cover__description">对不起，您要找的页面被AGE君丢失了，(＞人＜；)</p>
+          <p class="panel-cover__description">对不起，您要找的页面被AGE君丢失了 (＞人＜)</p>
           <hr class="panel-cover__divider panel-cover__divider--secondary">
-          <p class="footer">AGE动漫 © 2020 - 2021 agefans.net</p>
+          <p class="footer">BANGUMI动漫 © 2020 - 2022 chenyunlong.cn</p>
         </div>
       </div>
       <div class="panel-cover--overlay cover-slate"></div>

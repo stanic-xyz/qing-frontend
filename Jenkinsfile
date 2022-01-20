@@ -3,13 +3,7 @@ pipeline {
         docker { image 'node:latest' }
     }
     stages {
-        stage('Test') {
-            steps {
-                sh 'node --version'
-                sh 'npm --version'
-            }
-        }
-         stage('编译') { 
+         stage('安装') {
              steps {
                  sh "npm install"
              }

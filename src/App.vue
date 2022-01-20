@@ -27,10 +27,9 @@
 </template>
 
 <script>
-import request from './utils/request'
+import MyNav from './views/common/MyNav'
 import MyHeader from './views/common/Header'
 import MyFooter from './views/common/Footer'
-import MyNav from './views/common/MyNav'
 
 export default {
   name: 'App',

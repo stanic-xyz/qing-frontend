@@ -43,7 +43,7 @@ contexts.keys().forEach(value => {
 
 const router = new VueRouter({
   // (缩写) 相当于 routes: routes
-  mode: 'history',
+  // mode: 'history',
   routes: routes
 })
 

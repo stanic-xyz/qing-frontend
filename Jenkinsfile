@@ -1,21 +1,15 @@
 pipeline {
   agent {
-    docker { image 'node:16.13.1-alpine' }
+    docker {
+      image 'node:6-alpine'
+      args '-p 3000:3000'
+    }
   }
   stages {
-    stage('安装') {
+    stage('Build') {
       steps {
-        sh "npm install"
-      }
-    }
-    stage('打包') {
-      steps {
-        sh "npm package"
-      }
-    }
-    stage('发布') {
-      steps {
-        sh "echo 发布了"
+        sh 'npm install'
+        sh 'npm run build'
       }
     }
   }

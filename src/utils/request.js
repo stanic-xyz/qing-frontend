@@ -7,7 +7,7 @@ moment.locale('zh-cn')
 
 // 统一配置
 let axiosInstance = axios.create({
-  baseURL: 'http://127.0.0.1:8080/',
+  baseURL: window.location.host === 'localhost' ? 'http://127.0.0.1:8080/' : 'https://bangumi.chenyunlong.cn/',
   responseType: 'json',
   validateStatus(status) {
     // 200 外的状态码都认定为失败

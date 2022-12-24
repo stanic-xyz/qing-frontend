@@ -7,7 +7,7 @@
     <span>{{ navData.groupName }}</span>
   </router-link>
 </template>
-<script>
+<script lang="ts">
 export default {
   name: "nav-item",
   data() {

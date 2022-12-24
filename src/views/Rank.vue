@@ -6,26 +6,35 @@
       <div class="blockcontent">
         <div class="baseblock2">
           <div class="blocktitle" style="">排行分类</div>
-          <div class="blockcontent" style="padding: 0;">
+          <div class="blockcontent" style="padding: 0">
             <div class="baseblock">
               <div class="blocktitlexx" style="">
-                <a class="rank_tag rank_tag_current " href="/rank?tag='all')">所有动画播放排行</a>
+                <a class="rank_tag rank_tag_current" href="/rank?tag='all')"
+                  >所有动画播放排行</a
+                >
               </div>
               <div class="blocktitlexx" style="">
                 <a id="tagyears" href="javascript:" onclick="oncatsw(this);">
                   <span class="openorclose">-</span>
-                  <span class="rank_tag">分类动画播放排行</span></a>
+                  <span class="rank_tag">分类动画播放排行</span></a
+                >
               </div>
-              <ul id="cats" class="blockcontent" style="padding-left: 44px;">
-
+              <ul id="cats" class="blockcontent" style="padding-left: 44px">
                 <li class="rankyear asciifont">
-                  <a class="rank_tag_value "
-                     href="@{/rank(tag='catyear&amp',value=${i})}"
-                     each="i : ${#numbers.sequence(2020,2021)}"
-                     text="${i}"></a>
+                  <a
+                    class="rank_tag_value"
+                    each="i : ${#numbers.sequence(2020,2021)}"
+                    href="@{/rank(tag='catyear&amp',value=${i})}"
+                    text="${i}"
+                  ></a>
                 </li>
                 <li class="rankyear asciifont">
-                  <a class="rank_tag_value " href="@{/rank(tag='catyear&amp;',value='2000')}">2000以前</a></li>
+                  <a
+                    class="rank_tag_value"
+                    href="@{/rank(tag='catyear&amp;',value='2000')}"
+                    >2000以前</a
+                  >
+                </li>
               </ul>
             </div>
           </div>
@@ -41,11 +50,20 @@
         <div class="baseblock">
           <div class="blockcontent div_right_r_3">
             <ul class="div_right_r">
-              <li class="rank_text" each="anime,iterStat :${animeList}" if="${iterStat.index<=24}">
-                <span class="rank_text_idx rank_text_idx_top asciifont"> 1</span>
+              <li
+                class="rank_text"
+                each="anime,iterStat :${animeList}"
+                if="${iterStat.index<=24}"
+              >
+                <span class="rank_text_idx rank_text_idx_top asciifont">
+                  1</span
+                >
                 <a href="@{/detail/{animeId}(animeId= ${anime.id})}">
-                  <span class="rank_text_name">名称</span></a>
-                <span class="rank_value asciifont" text="${anime.playHeat}">0</span>
+                  <span class="rank_text_name">名称</span></a
+                >
+                <span class="rank_value asciifont" text="${anime.playHeat}"
+                  >0</span
+                >
               </li>
             </ul>
           </div>
@@ -57,35 +75,34 @@
 </template>
 
 <script>
-import HelloWorld from './anime/HelloWorld.vue'
+import HelloWorld from "./anime/HelloWorld.vue";
 
 export default {
-  name: 'HomePage',
-  components: {HelloWorld},
+  name: "HomePage",
+  components: { HelloWorld },
   data() {
     return {
-      activeIndex: '1',
-      activeIndex2: '1',
+      activeIndex: "1",
+      activeIndex2: "1",
       currentDate: new Date(),
-      time: '2020年01月15日 21时50分19秒',
-      loading: true
-    }
+      time: "2020年01月15日 21时50分19秒",
+      loading: true,
+    };
   },
-  mounted() {
-  },
+  mounted() {},
   methods: {
     handleSelect(key, keyPath) {
-      console.log(key, keyPath)
+      console.log(key, keyPath);
     },
     create() {
       this.$notify.success({
-        title: 'Info',
-        message: '这是一条没有关闭按钮的消息',
-        showClose: false
-      })
-    }
-  }
-}
+        title: "Info",
+        message: "这是一条没有关闭按钮的消息",
+        showClose: false,
+      });
+    },
+  },
+};
 </script>
 <style>
 .alert {

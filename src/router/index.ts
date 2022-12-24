@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import Activity from "@/views/Activity.vue";
 import LoginPage from "@/views/login/LoginPage.vue";
 import ExceptionPage from "@/views/exception/ExceptionPage.vue";
+import Catalog from "@/views/CatalogPage.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,6 +14,11 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: HomeView,
+    },
+    {
+      path: "/catalog/",
+      name: "catalog",
+      component: Catalog,
     },
     {
       path: "/about",

@@ -5,29 +5,28 @@
     </div>
     <div class="loginout">
       <span class="svg_title svg_title_user"></span>
-      <router-link id="comment_user" class="loginout_btn2" to="/login">登陆</router-link>
+      <router-link id="comment_user" class="loginout_btn2" to="/login"
+        >登陆
+      </router-link>
     </div>
   </div>
 </template>
 <script lang="ts">
 export default {
-  name: 'MyHeader',
+  name: "MyHeader",
   data() {
     return {
       time: new Date(),
-      activeIndex: '1',
-      activeIndex2: '1'
-    }
+      activeIndex: "1",
+      activeIndex2: "1",
+    };
   },
   methods: {
-    create: function () {
-    },
+    create: function () {},
     handleSelect(key: String, keyPath: String) {
-      console.log(key, keyPath)
-    }
-  }
-}
+      console.log(key, keyPath);
+    },
+  },
+};
 </script>
-<style>
-
-</style>
+<style></style>

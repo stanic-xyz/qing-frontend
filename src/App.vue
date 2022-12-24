@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-import { RouterLink, RouterView } from "vue-router";
-import TodoItem from "./views/common/TodoItem.vue";
-import TheWelcome from "@/components/TheWelcome.vue";
+import { RouterView } from "vue-router";
 </script>
 
 <template>

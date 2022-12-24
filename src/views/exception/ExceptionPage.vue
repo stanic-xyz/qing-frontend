@@ -37,7 +37,6 @@ console.log("hello script setup");
 
 <style>
 .panel-cover {
-  background-image: url("../../../public/logo.jpg");
   position: fixed;
   z-index: 900;
   display: block;
@@ -45,8 +44,6 @@ console.log("hello script setup");
   height: 100%;
   max-width: none;
   background: url("../../../public/logo.jpg") top left no-repeat #666666;
-  background-image: url("../../../public/logo.jpg");
-  background-size: auto;
   background-size: cover;
 }
 </style>

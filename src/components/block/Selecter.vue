@@ -9,7 +9,7 @@
     </div>
   </div>
 </template>
-<script>
+<script lang="ts">
 export default {
   name: 'MyHeader',
   data() {
@@ -22,7 +22,7 @@ export default {
   methods: {
     create: function () {
     },
-    handleSelect(key, keyPath) {
+    handleSelect(key: String, keyPath: String) {
       console.log(key, keyPath)
     }
   }

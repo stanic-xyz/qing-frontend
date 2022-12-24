@@ -1,18 +1,33 @@
+<script lang="ts" setup>
+import { ref } from "vue";
+
+const count = ref(0);
+
+console.log("hello script setup");
+</script>
+
 <template>
-  <header class="panel-cover">
+  <header
+    class="panel-cover"
+    style="background-image: url('../../../public/logo.jpg')"
+  >
     <div class="panel-main">
       <div class="panel-main__inner panel-inverted">
         <div class="panel-main__content">
-          <router-link :to="{path:'/'}">
-            <img alt="AGEFANS LOGO"
-                 class="panel-cover__logo logo"
-                 src="../../assets/img/logo.jpg"
-                 title="AGE动漫" width="400"/>
-          </router-link>
-          <hr class="panel-cover__divider">
-          <p class="panel-cover__description">对不起，您要找的页面被AGE君丢失了 (＞人＜)</p>
-          <hr class="panel-cover__divider panel-cover__divider--secondary">
-          <p class="footer">BANGUMI动漫 © 2020 - 2022 chenyunlong.cn</p>
+          <a href="/login">
+            <img
+              alt="AGE FANS LOGO"
+              class="panel-cover__logo logo"
+              src="../../../public/logo.jpg"
+              title="AGE动漫"
+              width="150"
+          /></a>
+          <hr class="panel-cover__divider" />
+          <p class="panel-cover__description">
+            对不起，您要找的页面被俺给弄丢了(＞人＜)
+          </p>
+          <hr class="panel-cover__divider panel-cover__divider--secondary" />
+          <p class="footer">我的动漫 © 2020 - 2022 bangumi.chenyunlong.cn</p>
         </div>
       </div>
       <div class="panel-cover--overlay cover-slate"></div>
@@ -20,13 +35,18 @@
   </header>
 </template>
 
-<script>
-export default {
-  name: 'ExceptionPage'
+<style>
+.panel-cover {
+  background-image: url("../../../public/logo.jpg");
+  position: fixed;
+  z-index: 900;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  background: url("../../../public/logo.jpg") top left no-repeat #666666;
+  background-image: url("../../../public/logo.jpg");
+  background-size: auto;
+  background-size: cover;
 }
-</script>
-
-<style scoped>
-@import "../../assets/css/404.css";
-
 </style>

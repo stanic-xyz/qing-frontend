@@ -5,66 +5,93 @@
       <b-button variant="danger">Button</b-button>
       <b-button variant="success">Button</b-button>
       <b-button variant="outline-primary">Button</b-button>
-      <b-icon icon="clock" animation="spin-reverse" font-scale="1"></b-icon>
+      <b-icon animation="spin-reverse" font-scale="1" icon="clock"></b-icon>
       <b-badge>这是你的名字</b-badge>
     </div>
     <iframe
-      width="640"
-      height="360"
-      src="https://www.youtube.com/embed/ylLOn6KXzAc"
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
+      height="360"
+      src="https://www.youtube.com/embed/ylLOn6KXzAc"
+      width="640"
     ></iframe>
     <div>
       <b-iconstack font-scale="2" variant="white">
-        <b-icon stacked icon="square-fill" variant="dark"></b-icon>
-        <b-icon stacked icon="arrow-up-short" scale="0.5" shift-v="3" shift-h="-3"></b-icon>
-        <b-icon stacked icon="arrow-up-short" scale="0.5" shift-v="3" shift-h="3" rotate="90"></b-icon>
-        <b-icon stacked icon="arrow-up-short" scale="0.5" shift-v="-3" shift-h="3" rotate="180"></b-icon>
-        <b-icon stacked icon="arrow-up-short" scale="0.5" shift-v="-3" shift-h="-3" rotate="270"></b-icon>
+        <b-icon icon="square-fill" stacked variant="dark"></b-icon>
+        <b-icon
+          icon="arrow-up-short"
+          scale="0.5"
+          shift-h="-3"
+          shift-v="3"
+          stacked
+        ></b-icon>
+        <b-icon
+          icon="arrow-up-short"
+          rotate="90"
+          scale="0.5"
+          shift-h="3"
+          shift-v="3"
+          stacked
+        ></b-icon>
+        <b-icon
+          icon="arrow-up-short"
+          rotate="180"
+          scale="0.5"
+          shift-h="3"
+          shift-v="-3"
+          stacked
+        ></b-icon>
+        <b-icon
+          icon="arrow-up-short"
+          rotate="270"
+          scale="0.5"
+          shift-h="-3"
+          shift-v="-3"
+          stacked
+        ></b-icon>
       </b-iconstack>
       <b-iconstack font-scale="5">
-        <b-icon stacked icon="square"></b-icon>
-        <b-icon stacked icon="dot" shift-h="-3" shift-v="4"></b-icon>
-        <b-icon stacked icon="dot" shift-h="-3"></b-icon>
-        <b-icon stacked icon="dot" shift-h="-3" shift-v="-4"></b-icon>
-        <b-icon stacked icon="dot" shift-h="3" shift-v="4"></b-icon>
-        <b-icon stacked icon="dot" shift-h="3"></b-icon>
-        <b-icon stacked icon="dot" shift-h="3" shift-v="-4"></b-icon>
+        <b-icon icon="square" stacked></b-icon>
+        <b-icon icon="dot" shift-h="-3" shift-v="4" stacked></b-icon>
+        <b-icon icon="dot" shift-h="-3" stacked></b-icon>
+        <b-icon icon="dot" shift-h="-3" shift-v="-4" stacked></b-icon>
+        <b-icon icon="dot" shift-h="3" shift-v="4" stacked></b-icon>
+        <b-icon icon="dot" shift-h="3" stacked></b-icon>
+        <b-icon icon="dot" shift-h="3" shift-v="-4" stacked></b-icon>
       </b-iconstack>
     </div>
     <div>
-      <b-button size="sm" class="mb-2">
-        <b-icon icon="gear-fill" aria-hidden="true"></b-icon>
+      <b-button class="mb-2" size="sm">
+        <b-icon aria-hidden="true" icon="gear-fill"></b-icon>
         Settings
       </b-button>
-      <br/>
-      <b-button variant="primary" class="mb-2">
+      <br />
+      <b-button class="mb-2" variant="primary">
         Pay now
-        <b-icon icon="credit-card" aria-hidden="true"></b-icon>
+        <b-icon aria-hidden="true" icon="credit-card"></b-icon>
       </b-button>
-      <br/>
-      <b-button variant="outline-info" class="mb-2">
-        <b-icon icon="power" aria-hidden="true"></b-icon>
+      <br />
+      <b-button class="mb-2" variant="outline-info">
+        <b-icon aria-hidden="true" icon="power"></b-icon>
         Logout
       </b-button>
-      <br/>
-      <b-button size="lg" variant="info" class="mb-2">
-        <b-icon icon="question-circle-fill" aria-label="Help"></b-icon>
+      <br />
+      <b-button class="mb-2" size="lg" variant="info">
+        <b-icon aria-label="Help" icon="question-circle-fill"></b-icon>
       </b-button>
     </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
-}
+      msg: "Welcome to Your Vue.js App",
+    };
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

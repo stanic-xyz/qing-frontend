@@ -1,16 +1,9 @@
-<template>
-  <exception-page type="404"/>
-</template>
+<script lang="ts" setup>
+import { ref } from "vue";
 
-<script>
-import ExceptionPage from '../exception/ExceptionPage'
-
-export default {
-  name: 'NotFoundComponent ',
-  components: {ExceptionPage}
-}
+const count = ref(0);
 </script>
 
-<style scoped>
-
-</style>
+<template>
+  <ExceptionPage type="404"></ExceptionPage>
+</template>

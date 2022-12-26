@@ -2,7 +2,7 @@
   <exception-page type="403" />
 </template>
 
-<script>
+<script lang="ts">
 import ExceptionPage from "../exception/ExceptionPage";
 
 export default {

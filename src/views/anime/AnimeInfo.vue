@@ -217,9 +217,7 @@
   </b-container>
 </template>
 
-<script>
-import request from "../../utils/request";
-
+<script lang="ts">
 export default {
   name: "AnimeInfo",
   data() {
@@ -280,12 +278,7 @@ export default {
         {
           key: "isActive",
           label: "状态",
-          formatter: (value, key, item) => {
-            return value ? "激活" : "冻结";
-          },
           sortable: false,
-          sortByFormatted: false,
-          filterByFormatted: true,
         },
         { key: "actions", label: "操作" },
       ],
@@ -305,46 +298,10 @@ export default {
       },
     };
   },
-  created() {
-    request.get("/api/anime/listAnime").then((result) => {
-      let data = result.data.data;
-      this.items = result.data.data.records;
-      this.currentPage = data.current;
-      this.totalRows = data.total;
-    });
-  },
-  computed: {
-    sortOptions() {
-      // Create an options list from our fields
-      return this.fields
-        .filter((f) => f.sortable)
-        .map((f) => {
-          return { text: f.label, value: f.key };
-        });
-    },
-  },
+  created() {},
   mounted() {
     // Set the initial number of items
-    this.totalRows = this.items.length;
   },
-  methods: {
-    info(item, index, button) {
-      this.infoModal.title = `Row index: ${index}`;
-      this.infoModal.content = JSON.stringify(item, null, 2);
-      this.$root.$emit("bv::show::modal", this.infoModal.id, button);
-    },
-    rowInfo(item, index, button) {
-      console.log(item, "详情");
-    },
-    resetInfoModal() {
-      this.infoModal.title = "";
-      this.infoModal.content = "";
-    },
-    onFiltered(filteredItems) {
-      // Trigger pagination to update the number of buttons/pages due to filtering
-      this.totalRows = filteredItems.length;
-      this.currentPage = 1;
-    },
-  },
+  methods: {},
 };
 </script>

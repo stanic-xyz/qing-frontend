@@ -178,12 +178,7 @@
         <div class="report_div">
           <form id="report_form" action="/report" method="GET">
             <div>
-              <input
-                id="report_aid"
-                name="cid"
-                th:value="${data?.animeInfo?.id}"
-                type="hidden"
-              />
+              <input id="report_aid" name="cid" type="hidden" />
               <label>
                 <input
                   name="link_invalid"
@@ -277,12 +272,7 @@
           <div id="comments_block" class="switchblock">
             <form id="comment_form" action="javascript:void(0)" method="GET">
               <div>
-                <input
-                  id="comment_id"
-                  name="cid"
-                  th:value="${data?.animeInfo?.id}"
-                  type="hidden"
-                />
+                <input id="comment_id" name="cid" type="hidden" />
                 <label for="comment_content"></label>
                 <textarea
                   id="comment_content"
@@ -397,14 +387,9 @@
   </div>
 </template>
 
-<script>
-import HelloWorld from "./anime/HelloWorld.vue";
-import moment from "moment";
-import request from "../utils/request";
-
+<script lang="ts">
 export default {
   name: "HomePage",
-  components: { HelloWorld },
   data() {
     return {
       activeIndex: "1",
@@ -485,7 +470,7 @@ export default {
           createBy: "",
           updateBy: "",
           remark: "",
-          id: 1420404091520241666,
+          id: "1420404091520241666",
           cid: 20000001,
           username: "游客",
           content: "啦啦啦",
@@ -494,28 +479,9 @@ export default {
       ],
     };
   },
-  mounted() {
-    request
-      .get("/api/admin/anime/detail/" + this.$route.query.id)
-      .then((result) => {
-        this.animeInfo = result.data.data;
-      });
-  },
-  created() {
-    this.$notify.success({
-      title: "Info",
-      message: "这是一条没有关闭按钮的消息",
-      showClose: false,
-    });
-  },
-  methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    dateFormat: function (date) {
-      return moment(date).format("YYYY-MM-DD");
-    },
-  },
+  mounted() {},
+  created() {},
+  methods: {},
 };
 </script>
 <style>

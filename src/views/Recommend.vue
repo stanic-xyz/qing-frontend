@@ -33,9 +33,8 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import HelloWorld from "./anime/HelloWorld.vue";
-import request from "../utils/request";
 
 export default {
   name: "HomePage",

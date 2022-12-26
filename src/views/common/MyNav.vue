@@ -29,7 +29,7 @@
     </form>
   </header>
 </template>
-<script>
+<script lang="ts">
 import NavItem from "../../components/block/Nav-Item";
 
 export default {

@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import Activity from "@/views/Activity.vue";
+import Activity from "@/views/ActivityPage.vue";
 import LoginPage from "@/views/login/LoginPage.vue";
 import ExceptionPage from "@/views/exception/ExceptionPage.vue";
 import Catalog from "@/views/CatalogPage.vue";

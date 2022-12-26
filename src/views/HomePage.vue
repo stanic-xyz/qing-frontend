@@ -3,7 +3,7 @@
   <HelloWorld></HelloWorld>
 </template>
 
-<script>
+<script lang="ts">
 import HelloWorld from "./anime/HelloWorld.vue";
 
 export default {

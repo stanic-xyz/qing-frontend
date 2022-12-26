@@ -166,12 +166,10 @@
   </div>
 </template>
 
-<script>
-import request from "../utils/request";
-import MyTips from "./common/MyTips";
+<script lang="ts">
+import MyTips from "@/views/common/MyTips.vue";
 
 export default {
-  name: "Index",
   components: { MyTips },
   data() {
     return {
@@ -214,18 +212,8 @@ export default {
       },
     };
   },
-  created() {
-    request
-      .get("/api/admin/anime/listAnime?page=1&pageSize=15")
-      .then((result) => {
-        this.animeList = result.data.data.records;
-      });
-  },
-  methods: {
-    onRowSelected(items) {
-      this.selected = items;
-    },
-  },
+  created() {},
+  methods: {},
 };
 </script>
 

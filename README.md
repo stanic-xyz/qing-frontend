@@ -1,5 +1,7 @@
 # qing-frontend
 
+[![Node.js CI](https://github.com/YunlongChen/qing-frontend/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/YunlongChen/qing-frontend/actions/workflows/build.yml)
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup

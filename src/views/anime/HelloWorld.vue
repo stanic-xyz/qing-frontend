@@ -85,6 +85,10 @@
 
 <script lang="ts">
 export default {
+  props: {
+    title: String,
+    likes: Number,
+  },
   name: "HelloWorld",
   data() {
     return {

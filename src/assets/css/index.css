@@ -128,7 +128,7 @@
         width: 100%;
     }
 
-    .div_right .blocktitle:nth-child(4) {
+    .div_right .blockTitle:nth-child(4) {
         display: none;
     }
 
@@ -140,11 +140,11 @@
         display: none;
     }
 
-    .div_right .blockcontent:nth-child(5) {
+    .div_right .blockContent:nth-child(5) {
         display: none;
     }
 
-    .div_left .blockcontent ul li:nth-child(n+10) {
+    .div_left .blockContent ul li:nth-child(n+10) {
         display: none;
     }
 
@@ -176,7 +176,7 @@
         width: 13.4%;
     }
 
-    .div_right .blocktitle {
+    .div_right .blockTitle {
         display: none;
     }
 }

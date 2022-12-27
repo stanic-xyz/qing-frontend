@@ -7,6 +7,6 @@ const props = defineProps({
 </script>
 
 <template>
-  <li>{{ todo }}</li>
+  <li>{{ props.todo }}</li>
   <LoginVue></LoginVue>
 </template>

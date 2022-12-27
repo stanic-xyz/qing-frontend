@@ -1,7 +1,15 @@
+<template>
+  <div id="container">
+    {{ data.activeIndex }}
+  </div>
+  <RankPage />
+</template>
+
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
+import RankPage from "@/views/RankPage.vue";
 
-const users = ref({
+const data = ref({
   activeIndex: "1",
   activeIndex2: "1",
   currentDate: new Date(),
@@ -150,222 +158,14 @@ const users = ref({
     order: "全部",
     resource: "全部",
   },
+  message: "test",
 });
 
 onMounted(() => {
-  console.log("启动了");
+  console.log("启动了", data);
 });
 </script>
 
-<template>
-  <div id="container">
-    <div class="spaceblock"></div>
-    <div class="baseblock">
-      <div class="blockcontent">
-        <!-- 目录 -->
-        <ul id="search-list" class="search-list">
-          <li>
-            <span>地区：</span>
-            <ul class="search-tag">
-              <li
-                v-for="(region, index) in regionNames"
-                :key="index"
-                :class="{ on: queryObject.region === region }"
-              >
-                <a @click="queryObject.region = region">{{ region }}</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <span>版本：</span>
-            <ul class="search-tag">
-              <li
-                v-for="(item, index) in regionNames"
-                :key="index"
-                :class="{ on: queryObject.version === item }"
-              >
-                <a @click="queryObject.version = item">{{ item }}</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <span>年份：</span>
-            <ul class="search-tag">
-              <li
-                v-for="(item, index) in yearNames"
-                :key="index"
-                :class="{ on: queryObject.year === item }"
-              >
-                <a @click="queryObject.year = item">{{ item }}</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <span>季度：</span>
-            <ul class="search-tag">
-              <li
-                v-for="(item, index) in seasonNames"
-                :key="index"
-                :class="{ on: queryObject.season === item }"
-              >
-                <a @click="queryObject.season = item">{{
-                  item === "全部" ? item : item + "月新番"
-                }}</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <span>状态：</span>
-            <ul class="search-tag">
-              <li
-                v-for="(item, index) in statusNames"
-                :key="index"
-                :class="{ on: queryObject.status === item }"
-              >
-                <a @click="queryObject.status = item">{{ item }}</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <span>类型：</span>
-            <ul class="search-tag">
-              <li
-                v-for="(item, index) in labelNames"
-                :key="index"
-                :class="{ on: queryObject.label === item }"
-              >
-                <a @click="queryObject.label = item">{{ item }}</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <span>资源：</span>
-            <ul class="search-tag">
-              <li
-                v-for="(item, index) in resourceNames"
-                :key="index"
-                :class="{ on: queryObject.resource === item }"
-              >
-                <a @click="queryObject.resource = region">{{ item }}</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <span>排序：</span>
-            <ul class="search-tag">
-              <li
-                v-for="(item, index) in orderNames"
-                :key="index"
-                :class="{ on: queryObject.order === item }"
-              >
-                <a @click="queryObject.order = item">{{ item }}</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="baseblock">
-      <div class="blockcontent" style="position: relative">
-        <span class="asciifont result_count">{{ totalCount }}记录</span>
-      </div>
-    </div>
-    <div class="baseblock">
-      <div class="blockcontent1">
-        <div
-          v-for="(anime, index) in animeInfoList"
-          :key="index"
-          :class="{ blockdiff: index % 2 === 0, blockdiff2: index % 2 !== 0 }"
-          class="cell"
-        >
-          <router-link :to="{ path: '/detail' }" class="cell_poster">
-            <img
-              :alt="anime.name"
-              :src="anime.coverUrl"
-              height="208px"
-              loading="lazy"
-              referrerpolicy="no-referrer"
-              width="150px"
-            />
-            <span class="newname">第120话</span>
-          </router-link>
-          <div class="cell_imform">
-            <div>
-              <router-link
-                :to="{ name: 'bar', query: { id: anime.id } }"
-                class="nbutton2 cell_res_button"
-              >
-                {{ anime.name }}
-              </router-link>
-            </div>
-            <div class="cell_imform_kvs">
-              <div class="cell_imform_kv">
-                <span class="cell_imform_tag">动画种类：</span>
-                <span class="cell_imform_value">{{ anime.typeName }}</span>
-              </div>
-              <div class="cell_imform_kv">
-                <span class="cell_imform_tag">原版名称：</span>
-                <span class="cell_imform_value">{{ anime.otherName }}</span>
-              </div>
-              <div class="cell_imform_kv">
-                <span class="cell_imform_tag">其他名称：</span>
-                <span class="cell_imform_value">{{ anime.otherName }}</span>
-              </div>
-              <br />
-              <div class="cell_imform_kv">
-                <span class="cell_imform_tag">首播时间：</span>
-                <span class="cell_imform_value">{{ anime.premiereDate }}</span>
-              </div>
-              <div class="cell_imform_kv">
-                <span class="cell_imform_tag">播放状态：</span>
-                <span class="cell_imform_value">{{ anime.playStatus }}</span>
-              </div>
-              <div class="cell_imform_kv">
-                <span class="cell_imform_tag">原作：</span>
-                <span class="cell_imform_value">{{ anime.originalName }}</span>
-              </div>
-              <br />
-              <div class="cell_imform_kv">
-                <span class="cell_imform_tag">剧情类型：</span>
-                <span class="cell_imform_value">{{ anime.plotType }}</span>
-              </div>
-              <div class="cell_imform_kv">
-                <span class="cell_imform_tag">制作公司：</span>
-                <span class="cell_imform_value">{{ anime.company }}</span>
-              </div>
-              <div class="cell_imform_kv cell_imform_kv_desc">
-                <span class="cell_imform_tag">简介：</span>
-                <div class="cell_imform_desc">{{ anime.instruction }}</div>
-              </div>
-            </div>
-            <div class="cell_imform_btns">
-              <router-link
-                :to="{ path: 'detail', query: { id: anime.id } }"
-                class="nbutton2 cell_res_button"
-                >资源详情
-              </router-link>
-              <router-link
-                :to="{ path: 'play', query: { id: anime.id } }"
-                class="nbutton2 cell_res_button"
-                >在线播放
-              </router-link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="baseblock">
-      <div class="blockcontent">
-        <span class="asciifont result_count">{{ totalCount }}记录</span>
-        <div>这里是分页</div>
-      </div>
-    </div>
-
-    {{ users }}
-  </div>
-</template>
-
 <style>
-@import "../assets/css/catalog.css";
+/*@import "../assets/css/catalog.css";*/
 </style>

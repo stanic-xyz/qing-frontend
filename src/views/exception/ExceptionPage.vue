@@ -4,6 +4,7 @@ import { ref } from "vue";
 const count = ref(0);
 
 console.log("hello script setup");
+console.log("hello script setup", count);
 </script>
 
 <template>
@@ -24,7 +25,7 @@ console.log("hello script setup");
           /></a>
           <hr class="panel-cover__divider" />
           <p class="panel-cover__description">
-            对不起，您要找的页面被俺给弄丢了(＞人＜)
+            对不起，您要找的页面被俺给弄丢了(＞人＜){{ count }}
           </p>
           <hr class="panel-cover__divider panel-cover__divider--secondary" />
           <p class="footer">我的动漫 © 2020 - 2022 bangumi.chenyunlong.cn</p>

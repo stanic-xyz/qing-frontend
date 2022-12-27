@@ -1,45 +1,12 @@
 <template>
   <div id="container">
-    <div class="spaceblock"></div>
-    <div class="baseblock">
-      <div class="blockcontent">
-        <ul class="ul_li_a6">
-          <li
-            v-for="animeInfo in animeInfoList"
-            :key="animeInfo.id"
-            class="anime_icon2"
-          >
-            <router-link :to="{ route: 'detail', query: { id: animeInfo.id } }">
-              <img
-                :alt="animeInfo.name"
-                :src="animeInfo.coverUrl"
-                :title="animeInfo.name"
-                class="anime_icon2_img"
-                height="208px"
-                referrerpolicy="no-referrer"
-                width="150px"
-              />
-              <span class="anime_icon1_name1">[TV 01-12]</span>
-            </router-link>
-            <h4 class="anime_icon2_name">
-              <router-link
-                :to="{ route: 'detail', query: { id: animeInfo.id } }"
-                >{{ animeInfo.name }}
-              </router-link>
-            </h4>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <div class="spaceBlock"></div>
   </div>
 </template>
 
 <script lang="ts">
-import HelloWorld from "./anime/HelloWorld.vue";
-
 export default {
   name: "HomePage",
-  components: { HelloWorld },
   data() {
     return {
       activeIndex: "1",
@@ -69,7 +36,7 @@ export default {
           playStatus: "连载",
           plotType: "搞笑 冒险 热血 励志",
           tags: "搞笑 冒险 热血 励志",
-          officialWebsite: "http://www.fujitv.co.jp/b_hp/onepiece/index.html",
+          officialWebsite: "https://www.fujitv.co.jp/b_hp/onepiece/index.html",
           playHeat: "3953",
         },
       ],
@@ -77,15 +44,8 @@ export default {
   },
   mounted() {},
   methods: {
-    handleSelect(key, keyPath) {
+    handleSelect(key: string, keyPath: string) {
       console.log(key, keyPath);
-    },
-    create() {
-      this.$notify.success({
-        title: "Info",
-        message: "这是一条没有关闭按钮的消息",
-        showClose: false,
-      });
     },
   },
 };

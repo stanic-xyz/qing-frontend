@@ -1,8 +1,8 @@
 <template>
   <div id="container">
-    <div class="spaceblock"></div>
-    <div class="baseblock">
-      <div class="blockcontent">
+    <div class="spaceBlock"></div>
+    <div class="baseBlock">
+      <div class="blockContent">
         <ul class="ul_li_a6">
           <li
             v-for="animeInfo in animeInfoList"
@@ -76,21 +76,11 @@ export default {
   },
   mounted() {},
   methods: {
-    handleSelect(key, keyPath) {
+    handleSelect(key: string, keyPath: string) {
       console.log(key, keyPath);
-    },
-    create() {
-      this.$notify.success({
-        title: "Info",
-        message: "这是一条没有关闭按钮的消息",
-        showClose: false,
-      });
     },
     mounted() {
       console.log("mounted");
-      request.get("/api/admin/anime/listAnime", {}).then((result) => {
-        console.log(result.data.data);
-      });
     },
   },
 };

@@ -43,22 +43,21 @@
     </div>
   </footer>
 </template>
-<script lang="ts">
-export default {
-  name: "MyFooter",
-  data() {
-    return {
-      time: new Date(),
-      activeIndex: "1",
-      activeIndex2: "1",
-    };
-  },
-  methods: {
-    create: function () {},
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-    },
-  },
-};
+<script lang="ts" setup>
+import { onMounted, ref } from "vue";
+
+const data = ref({
+  time: new Date(),
+  activeIndex: "1",
+  activeIndex2: "1",
+});
+
+function handleSelect(key: string, keyPath: string) {
+  console.log(key, keyPath);
+}
+
+onMounted(() => {
+  console.log(data);
+});
 </script>
 <style></style>

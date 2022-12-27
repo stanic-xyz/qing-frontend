@@ -337,12 +337,12 @@
         width: 100%;
     }
 
-    .baseblock .blockcontent table tbody tr td:nth-child(1) {
+    .baseBlock .blockContent table tbody tr td:nth-child(1) {
         float: left;
         width: 40%;
     }
 
-    .baseblock .blockcontent table tbody tr td:nth-child(2) {
+    .baseBlock .blockContent table tbody tr td:nth-child(2) {
         float: left;
         width: 59.9%;
     }
@@ -352,7 +352,7 @@
         height: auto;
     }
 
-    .baseblock .blockcontent {
+    .baseBlock .blockContent {
         padding: 10px 4px;
     }
 

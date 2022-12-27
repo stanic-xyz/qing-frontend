@@ -17,7 +17,7 @@
     border-radius: 1px;
 }
 
-.baseblock2 .detail_title1 {
+.baseBlock2 .detail_title1 {
     background-color: transparent;
     border-bottom: 1px solid transparent;
 }
@@ -115,7 +115,7 @@
     color: #e8e8e9;
 }
 
-.switchblock {
+.switchBlock {
     padding: 16px 12px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
@@ -290,20 +290,20 @@
         height: auto;
     }
 
-    .div_left .baseblock {
+    .div_left .baseBlock {
         float: left;
     }
 
-    .div_left .baseblock:nth-child(1) {
+    .div_left .baseBlock:nth-child(1) {
         width: 40%;
     }
 
-    .div_left .baseblock:nth-child(2) {
+    .div_left .baseBlock:nth-child(2) {
         width: 59.9%;
         float: right;
     }
 
-    .div_left .baseblock:nth-child(3) {
+    .div_left .baseBlock:nth-child(3) {
         width: 100%;
     }
 
@@ -317,7 +317,7 @@
         display: inline-block;
     }
 
-    .baseblock:nth-child(2) .blockcontent .baseblock2 .detail_title1,
+    .baseBlock:nth-child(2) .blockContent .baseBlock2 .detail_title1,
     .detail_imform_kv:nth-child(4),
     .detail_imform_kv:nth-child(6),
     .detail_imform_kv:nth-child(9),
@@ -325,12 +325,12 @@
         display: none;
     }
 
-    .baseblock:nth-child(2) div.blockcontent {
+    .baseBlock:nth-child(2) div.blockContent {
         padding: 2px 4px 0px 0px;
 
     }
 
-    .baseblock2 .blocktitle {
+    .baseBlock2 .blockTitle {
         padding: 4px 4px 0px 4px;
     }
 
@@ -338,27 +338,27 @@
         width: 100%;
     }
 
-    .baseblock .blockcontent {
+    .baseBlock .blockContent {
         padding: 2px 4px;
     }
 
-    .div_right .baseblock:nth-child(7) {
+    .div_right .baseBlock:nth-child(7) {
         padding: 0px 1%;
     }
 
-    .div_right .baseblock:nth-child(1) {
+    .div_right .baseBlock:nth-child(1) {
         padding: 0px 1%;
     }
 
-    .div_right .baseblock:nth-child(1) .blockcontent {
+    .div_right .baseBlock:nth-child(1) .blockContent {
         padding: 0px 1%;
     }
 
-    .div_right .baseblock:nth-child(3) {
+    .div_right .baseBlock:nth-child(3) {
         padding: 0px 1%;
     }
 
-    .baseblock2 {
+    .baseBlock2 {
         border: 1px solid #303030;
         color: #e8e8e9;
         border-radius: 0px;

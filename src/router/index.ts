@@ -3,7 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import Activity from "@/views/ActivityPage.vue";
 import LoginPage from "@/views/login/LoginPage.vue";
 import ExceptionPage from "@/views/exception/ExceptionPage.vue";
-import Catalog from "@/views/CatalogPage.vue";
+import AnimeInfo from "@/views/anime/AnimeInfo.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,7 +18,7 @@ const router = createRouter({
     {
       path: "/catalog",
       name: "catalog",
-      component: Catalog,
+      component: () => import("../views/CatalogPage.vue"),
     },
     {
       path: "/about",
@@ -30,6 +30,7 @@ const router = createRouter({
     },
     { path: "/users/:id", component: Activity },
     { path: "/login", component: LoginPage },
+    { path: "/anime", component: AnimeInfo },
   ],
 });
 

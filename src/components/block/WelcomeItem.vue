@@ -12,6 +12,17 @@
   </div>
 </template>
 
+<script lang="ts" setup>
+import { onMounted, reactive } from "vue";
+
+const data = reactive({
+  username: "username",
+});
+
+onMounted(() => {
+  console.log(data.username);
+});
+</script>
 <style scoped>
 .item {
   margin-top: 2rem;

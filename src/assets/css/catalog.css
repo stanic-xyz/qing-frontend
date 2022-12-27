@@ -104,7 +104,7 @@
 }
 
 @media only screen and (min-width: 0em) and (max-width: 40em) {
-    .baseblock .blockcontent {
+    .baseBlock .blockContent {
         padding: 8px 4px;
     }
 

@@ -15,7 +15,7 @@
         >欢迎大家分享给身边朋友！如果能够正常观看，那才是怪事了！</span
       >
     </div>
-    <div class="spaceblock1"></div>
+    <div class="spaceBlock1"></div>
   </div>
 </template>
 <script lang="ts">
@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     create: function () {},
-    handleSelect(key, keyPath) {
+    handleSelect(key: string, keyPath: string) {
       console.log(key, keyPath);
     },
   },

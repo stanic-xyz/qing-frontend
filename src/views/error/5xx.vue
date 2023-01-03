@@ -1,9 +1,9 @@
 <template>
-  <exception-page type="403"></exception-page>
+  <exception-page type="500" />
 </template>
 
 <script lang="ts" setup>
 import ExceptionPage from "@/views/exception/ExceptionPage.vue";
 </script>
 
-<style scoped></style>
+<style module></style>

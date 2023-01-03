@@ -85,7 +85,7 @@ export default {
   },
 };
 </script>
-<style>
+<style module>
 @import "../assets/css/play.css";
 
 .alert {

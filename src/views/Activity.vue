@@ -23,6 +23,14 @@ onMounted(() => {
 
 function increment() {
   state.count++;
+  state.mediaList = [
+    {
+      media_id: 123,
+      username: "陈云龙",
+      badge: "发布了信心了",
+      cover: "test",
+    },
+  ];
 }
 
 function handleEdit(test: Number, tes2t: String) {
@@ -39,21 +47,11 @@ function handleEdit(test: Number, tes2t: String) {
       src="https://www.youtube.com/embed/CYIntGsjNMs"
       width="1280"
     ></iframe>
-    <div v-for="item in state.mediaList" :key="item.media_id">
-      <el-button class="badge_info">{{ item.badge }}</el-button>
-      <el-button size="mini" @click="handleEdit(item.media_id, item.cover)"
-        >{{ item.media_id }}
-      </el-button>
-      <div>
-        <b-img :src="item.cover" alt="Responsive image" fluid></b-img>
-      </div>
-    </div>
   </div>
 </template>
 
-<style>
-.hello {
-  overflow: hidden;
-  background-color: #fff;
+<style module>
+div {
+  background-color: red;
 }
 </style>

@@ -60,4 +60,4 @@ onMounted(() => {
   console.log(data);
 });
 </script>
-<style></style>
+<style module></style>

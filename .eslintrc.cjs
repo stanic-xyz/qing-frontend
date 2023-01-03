@@ -12,12 +12,20 @@ module.exports = {
     overrides: [
         {
             files: [
-                'cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}'
+                "cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}"
             ],
-            'extends': [
-                'plugin:cypress/recommended'
+            "extends": [
+                "plugin:cypress/recommended"
             ]
+        },
+        {
+            files: ["*.vue", "*.ts"],
+            rules: {
+                // 给上面匹配的文件指定规则
+                "vue/multi-word-component-names": "off"
+            }
         }
+
     ],
     parserOptions: {
         ecmaVersion: 'latest'

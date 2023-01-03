@@ -3,8 +3,7 @@ import { ref } from "vue";
 
 const count = ref(0);
 
-console.log("hello script setup");
-console.log("hello script setup", count);
+console.log("ExceptionPage 加载成功");
 </script>
 
 <template>
@@ -36,7 +35,7 @@ console.log("hello script setup", count);
   </header>
 </template>
 
-<style>
+<style module>
 .panel-cover {
   position: fixed;
   z-index: 900;

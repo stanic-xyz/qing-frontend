@@ -166,6 +166,4 @@ onMounted(() => {
 });
 </script>
 
-<style>
-/*@import "../assets/css/catalog.css";*/
-</style>
+<style module></style>

@@ -87,3 +87,5 @@ let data = reactive({
   },
 });
 </script>
+
+<style module></style>

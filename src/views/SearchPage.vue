@@ -50,8 +50,8 @@ export default {
   },
 };
 </script>
-<style>
-@import "../assets/css/play.css";
+<style module>
+@import "../assets/css/login.css";
 
 .alert {
   text-align: left;

@@ -98,6 +98,6 @@ export default {
   methods: {},
 };
 </script>
-<style>
+<style module>
 /*@import "../assets/css/detail.css";*/
 </style>

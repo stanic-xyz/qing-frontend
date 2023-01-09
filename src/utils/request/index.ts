@@ -6,6 +6,7 @@ import type {
   RequestConfig,
   RequestInterceptors,
 } from "@/utils/request/types";
+import { userInfoStore } from "@/stores/session";
 
 moment.locale("zh-cn");
 
@@ -38,9 +39,15 @@ class Index {
     this.cancelRequestSourceList = [];
 
     this.instance.interceptors.request.use(
-      (res: AxiosRequestConfig) => {
+      (requestConfig: AxiosRequestConfig) => {
         console.log("全局请求拦截器");
-        return res;
+        const store = userInfoStore();
+        console.log("发起了请求");
+        requestConfig.headers = {
+          Authorization: "Bearer " + store.token,
+          "Content-Type": "application/json",
+        };
+        return requestConfig;
       },
       (err: any) => err
     );
@@ -52,7 +59,9 @@ class Index {
         console.log("全局响应拦截器");
         return res.data;
       },
-      (err: any) => err
+      (error: any) => {
+        return Promise.reject(error);
+      }
     );
   }
 
@@ -95,7 +104,10 @@ class Index {
     });
   }
 
-  // 取消请求
+  /**
+   * 取消请求
+   * @param url 请求地址
+   */
   cancelRequest(url: string | string[]) {
     if (typeof url === "string") {
       // 取消单个请求

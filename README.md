@@ -4,11 +4,16 @@
 
 This template should help get you started developing with Vue 3 in Vite.
 
-## Recommended IDE Setup
+##### 前端项目
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and
-disable
-Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+<p>
+  <a href="https://gitee.com/stanChen/qing">
+    <img alt="Gitee" src="https://img.shields.io/badge/-Gitee-C71D23?style=flat&logo=gitee&logoColor=white" />
+  </a>
+  <a href="https://github.com/stanic-xyz/qing">
+    <img alt="Github" src="https://img.shields.io/badge/-Github-181717?style=flat&logo=Github&logoColor=white" />
+  </a>
+</p>
 
 ## Type Support for `.vue` Imports in TS
 
@@ -22,8 +27,8 @@ a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discus
 performant. You can enable it by the following steps:
 
 1. Disable the built-in TypeScript Extension
-   1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
+    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
+    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
 ## Customize configuration

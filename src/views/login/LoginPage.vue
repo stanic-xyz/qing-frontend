@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
+import qingRequest from "@/utils/service";
+import { userInfoStore } from "@/stores/session";
 
 // “ref”是用来存储值的响应式数据源。
 // 理论上我们在展示该字符串的时候不需要将其包装在 ref() 中，
@@ -9,14 +11,28 @@ const password = ref("");
 
 function handleBtn() {
   console.log("账号：", username.value, "密码:", password.value);
-  alert("密码错误");
+
+  qingRequest({
+    method: "post",
+    url: "/api/authorize/formLogin",
+    data: {
+      username: username.value,
+      password: password.value,
+    },
+  })
+    .then(function (response) {
+      console.log("发起请求成功了", response);
+      const userInfoSto = userInfoStore();
+      userInfoSto.token = response.data.token;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 }
 </script>
 
 <template>
   <div id="container">
-    <img alt="" class="bg bg-img" src="../../../public/loginbg.jpg" />
-    <div class="bg bg-cover"></div>
     <div class="main">
       <div class="icon" style="'background-image:url(/img/logo.jpg)'"></div>
       <input
@@ -80,6 +96,4 @@ function handleBtn() {
   </div>
 </template>
 
-<style module>
-@import "../../assets/css/login.css";
-</style>
+<style module></style>

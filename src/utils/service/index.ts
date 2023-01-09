@@ -1,16 +1,19 @@
 import type { RequestConfig } from "@/utils/request/types";
 import Request from "@/utils/request";
 
-interface YWZRequestConfig<T> extends RequestConfig {
+interface QingRequestConfig<T> extends RequestConfig {
   data?: T;
 }
 
-interface YWZResponse<T> {
+interface QingResponse<T> {
   code: number;
   message: string;
   data: T;
 }
 
+/**
+ *添加一个请求信息
+ */
 const request = new Request({
   baseURL: "http://localhost:8080",
   timeout: 1000 * 60 * 5,
@@ -18,12 +21,12 @@ const request = new Request({
     // 请求拦截器
     requestInterceptors: (config) => {
       console.log("实例请求拦截器");
-
       return config;
     },
     // 响应拦截器
     responseInterceptors: (result) => {
       console.log("实例响应拦截器");
+      console.log(result);
       return result;
     },
   },
@@ -33,15 +36,15 @@ const request = new Request({
  * @description: 函数的描述
  * @interface D 请求参数的interface
  * @interface T 响应结构的intercept
- * @param {YWZRequestConfig} config 不管是GET还是POST请求都使用data
+ * @param {QingRequestConfig} config 不管是GET还是POST请求都使用data
  * @returns {Promise}
  */
-const ywzRequest = <D, T = any>(config: YWZRequestConfig<D>) => {
+const qingRequest = <D, T = any>(config: QingRequestConfig<D>) => {
   const { method = "GET" } = config;
   if (method === "get" || method === "GET") {
     config.params = config.data;
   }
-  return request.request<YWZResponse<T>>(config);
+  return request.request<QingResponse<T>>(config);
 };
 
-export default ywzRequest;
+export default qingRequest;

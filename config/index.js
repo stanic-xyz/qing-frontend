@@ -8,12 +8,13 @@ module.exports = {
   dev: {
 
     // Paths
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsSubDirectory: "static",
+    assetsPublicPath: "/",
     proxyTable: {},
 
     // Various Dev Server settings
-    port: 8081, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    port: 8081,
+    // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,

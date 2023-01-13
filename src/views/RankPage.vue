@@ -14,4 +14,4 @@ const data = reactive({
   loading: true,
 });
 </script>
-<style module></style>
+<style scoped></style>

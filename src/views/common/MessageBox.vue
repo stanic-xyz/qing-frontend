@@ -20,4 +20,4 @@ function close() {
 }
 </script>
 
-<style module></style>
+<style scoped></style>

@@ -9,4 +9,4 @@ console.log("服务启动----：", moment.now());
   <RouterView />
 </template>
 
-<style module></style>
+<style scoped></style>

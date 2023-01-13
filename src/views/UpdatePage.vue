@@ -72,7 +72,7 @@ onMounted(() => {
   console.log("发起了资料信息");
 });
 </script>
-<style module>
+<style scoped>
 .alert {
   text-align: left;
   margin: 10px;

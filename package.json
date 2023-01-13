@@ -17,6 +17,7 @@
     "axios": "^1.2.1",
     "bootstrap": "^5.2.3",
     "bootstrap-vue": "^2.23.1",
+    "js-cookie": "^3.0.1",
     "js-md5": "^0.7.3",
     "moment": "^2.29.4",
     "pinia": "^2.0.28",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
+    "@types/js-cookie": "^3.0.2",
     "@types/jsdom": "^20.0.1",
     "@types/node": "^18.11.12",
     "@vitejs/plugin-vue": "^4.0.0",

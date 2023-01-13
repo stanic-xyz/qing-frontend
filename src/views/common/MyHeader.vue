@@ -29,4 +29,4 @@ function handleSelect(event: MouseEvent) {
   console.log(event.altKey);
 }
 </script>
-<style module></style>
+<style scoped></style>

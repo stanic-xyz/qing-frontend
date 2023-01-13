@@ -35,7 +35,7 @@ console.log("ExceptionPage 加载成功");
   </header>
 </template>
 
-<style module>
+<style scoped>
 .panel-cover {
   position: fixed;
   z-index: 900;

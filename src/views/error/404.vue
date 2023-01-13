@@ -8,3 +8,5 @@ const count = ref(0);
 <template>
   <exception-page type="404"></exception-page>
 </template>
+
+<style scoped></style>

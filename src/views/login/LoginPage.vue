@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 import { ref } from "vue";
-import qingRequest from "@/utils/service";
 import { userInfoStore } from "@/stores/session";
+import { qingHttp } from "@/utils/service";
+import { QingHttpRequestConfig } from "@/utils/http/types";
+import { formatToken } from "@/utils/auth";
 
 // “ref”是用来存储值的响应式数据源。
 // 理论上我们在展示该字符串的时候不需要将其包装在 ref() 中，
@@ -9,21 +11,46 @@ import { userInfoStore } from "@/stores/session";
 const username = ref("");
 const password = ref("");
 
+class Test {}
+
+interface Tee {}
+
 function handleBtn() {
   console.log("账号：", username.value, "密码:", password.value);
 
-  qingRequest({
-    method: "post",
-    url: "/api/authorize/formLogin",
-    data: {
-      username: username.value,
-      password: password.value,
+  const defaultConfig: QingHttpRequestConfig = {
+    // 请求超时时间
+    timeout: 10000,
+    headers: {
+      Accept: "application/json, text/plain, */*",
+      Authorization: formatToken("12312312"),
+      "Content-Type": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
     },
-  })
+    // 数组格式参数序列化（https://github.com/axios/axios/issues/5142）
+  };
+
+  type Result = {
+    success: boolean;
+    data?: {
+      /** 列表数据 */
+      list: Array<any>;
+      /** 总数 */
+      total?: number;
+    };
+  };
+
+  qingHttp
+    .post<any, Result>("api/authorize/formLogin", {
+      params: {
+        username: username.value,
+        password: password.value,
+      },
+    })
     .then(function (response) {
       console.log("发起请求成功了", response);
       const userInfoSto = userInfoStore();
-      userInfoSto.token = response.data.token;
+      // userInfoSto.token = response.data.token;
     })
     .catch(function (error) {
       console.log(error);
@@ -96,4 +123,8 @@ function handleBtn() {
   </div>
 </template>
 
-<style module></style>
+<style scoped>
+body {
+  background-color: red;
+}
+</style>

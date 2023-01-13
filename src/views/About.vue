@@ -11,12 +11,4 @@ const username = ref("username");
   </div>
 </template>
 
-<style module>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+<style scoped></style>

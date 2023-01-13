@@ -76,4 +76,4 @@ reactive({
   ],
 });
 </script>
-<style module></style>
+<style scoped></style>

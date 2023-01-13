@@ -50,7 +50,7 @@ export default {
   },
 };
 </script>
-<style module>
+<style scoped>
 @import "../assets/css/login.css";
 
 .alert {

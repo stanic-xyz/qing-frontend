@@ -50,7 +50,7 @@ function handleEdit(test: Number, tes2t: String) {
   </div>
 </template>
 
-<style module>
+<style scoped>
 div {
   background-color: red;
 }

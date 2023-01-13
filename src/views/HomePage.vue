@@ -53,4 +53,4 @@ onMounted(() => {
   console.log("mounted");
 });
 </script>
-<style module></style>
+<style scoped></style>

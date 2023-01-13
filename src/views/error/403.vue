@@ -6,4 +6,4 @@
 import ExceptionPage from "@/views/exception/ExceptionPage.vue";
 </script>
 
-<style module></style>
+<style scoped></style>

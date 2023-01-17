@@ -10,6 +10,8 @@ onMounted(() => {
 });
 </script>
 
-<style scoped>
-/*@import "../assets/css/index.css";*/
+<style scoped src="../assets/css/index.css">
+#container {
+  color: red;
+}
 </style>

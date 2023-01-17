@@ -60,4 +60,12 @@ onMounted(() => {
   console.log(data);
 });
 </script>
-<style scoped></style>
+<style scoped>
+.link_text {
+  padding: 10px 0;
+}
+
+.link_text li {
+  margin-right: 10px;
+}
+</style>

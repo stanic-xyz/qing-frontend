@@ -1,56 +1,21 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import { userInfoStore } from "@/stores/session";
-import { qingHttp } from "@/utils/service";
-import { QingHttpRequestConfig } from "@/utils/http/types";
-import { formatToken } from "@/utils/auth";
+import { getLogin } from "@/api/auth";
 
 // “ref”是用来存储值的响应式数据源。
 // 理论上我们在展示该字符串的时候不需要将其包装在 ref() 中，
 // 但是在下一个示例中更改这个值的时候，我们就需要它了。
-const username = ref("");
-const password = ref("");
-
-class Test {}
-
-interface Tee {}
+const username = ref("string");
+const password = ref("string");
 
 function handleBtn() {
-  console.log("账号：", username.value, "密码:", password.value);
-
-  const defaultConfig: QingHttpRequestConfig = {
-    // 请求超时时间
-    timeout: 10000,
-    headers: {
-      Accept: "application/json, text/plain, */*",
-      Authorization: formatToken("12312312"),
-      "Content-Type": "application/json",
-      "X-Requested-With": "XMLHttpRequest",
-    },
-    // 数组格式参数序列化（https://github.com/axios/axios/issues/5142）
-  };
-
-  type Result = {
-    success: boolean;
-    data?: {
-      /** 列表数据 */
-      list: Array<any>;
-      /** 总数 */
-      total?: number;
-    };
-  };
-
-  qingHttp
-    .post<any, Result>("api/authorize/formLogin", {
-      params: {
-        username: username.value,
-        password: password.value,
-      },
-    })
+  getLogin(username.value, password.value)
     .then(function (response) {
       console.log("发起请求成功了", response);
       const userInfoSto = userInfoStore();
-      // userInfoSto.token = response.data.token;
+      userInfoSto.token = response.data.data.token;
+      userInfoSto.username = "user那么少";
     })
     .catch(function (error) {
       console.log(error);
@@ -123,8 +88,4 @@ function handleBtn() {
   </div>
 </template>
 
-<style scoped>
-body {
-  background-color: red;
-}
-</style>
+<style scoped src="../../assets/css/login.css"></style>

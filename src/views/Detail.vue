@@ -98,6 +98,4 @@ export default {
   methods: {},
 };
 </script>
-<style scoped>
-/*@import "../assets/css/detail.css";*/
-</style>
+<style scoped src="../assets/css/detail.css"></style>

@@ -37,10 +37,4 @@ export interface QingHttpRequestConfig extends AxiosRequestConfig {
   beforeResponseCallback?: (response: QingHttpResponse) => void;
   interceptors?: RequestInterceptors;
   timeout: 10000;
-  headers: {
-    Authorization?: string;
-    Accept: "application/json, text/plain, */*";
-    "Content-Type": "application/json";
-    "X-Requested-With": "XMLHttpRequest";
-  };
 }

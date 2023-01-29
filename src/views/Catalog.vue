@@ -1,13 +1,121 @@
 <template>
   <div id="container">
-    {{ data.activeIndex }}
+    <div class="baseblock">
+      <div class="blockcontent" style="position: relative">
+        <span
+          class="asciifont result_count"
+          text="${data.pagination.totalCount +'纪录'}"
+        ></span>
+        <div
+          include="common/header::pager('/catalog',${data.pagination.pages},${data.pagination.current},${data.pagination.size})"
+        ></div>
+      </div>
+    </div>
+    <div class="baseblock">
+      <div
+        v-for="(anime, index) in data.animeInfoList"
+        :key="anime.id"
+        class="blockcontent1"
+      >
+        <div
+          :class="{ blockdiff: index % 2 === 0 }"
+          class="cell blockdiff2"
+          each="anime,iterStat : ${data.animeList}"
+        >
+          <a
+            class="cell_poster"
+            href="${'/anime/'+anime.getId()+'/index.html'}"
+          >
+            <img
+              :alt="anime.name ? anime.name : '暂无描述'"
+              height="208px"
+              loading="lazy"
+              referrerpolicy="no-referrer"
+              src="../assets/img/anime/伤物语_small.jpg"
+              width="150px"
+            />
+            <span class="newname">第120话</span></a
+          >
+          <div class="cell_imform">
+            <div>
+              <a :href="anime.id" class="cell_imform_name">{{ anime.name }}</a>
+            </div>
+            <div class="cell_imform_kvs">
+              <div class="cell_imform_kv">
+                <span class="cell_imform_tag">动画种类：</span>
+                <span class="cell_imform_value">{{ anime.typeName }}</span>
+              </div>
+              <div class="cell_imform_kv">
+                <span class="cell_imform_tag">原版名称：</span>
+                <span class="cell_imform_value">{{ anime.originalName }}</span>
+              </div>
+              <div class="cell_imform_kv">
+                <span class="cell_imform_tag">其他名称：</span>
+                <span class="cell_imform_value">{{ anime.otherName }}</span>
+              </div>
+              <br />
+              <div class="cell_imform_kv">
+                <span class="cell_imform_tag">首播时间：</span>
+                <span class="cell_imform_value">{{ anime.premiereDate }}</span>
+              </div>
+              <div class="cell_imform_kv">
+                <span class="cell_imform_tag">播放状态：</span>
+                <span class="cell_imform_value">{{ anime.playStatus }}</span>
+              </div>
+              <div class="cell_imform_kv">
+                <span class="cell_imform_tag">原作：</span>
+                <span class="cell_imform_value">{{ anime.author }}</span>
+              </div>
+              <br />
+              <div class="cell_imform_kv">
+                <span class="cell_imform_tag">剧情类型：</span>
+                <span class="cell_imform_value" text="${anime.getPlotType()}"
+                  >暂无</span
+                >
+              </div>
+              <div class="cell_imform_kv">
+                <span class="cell_imform_tag">制作公司：</span>
+                <span class="cell_imform_value">{{ anime.company }}</span>
+              </div>
+              <div class="cell_imform_kv cell_imform_kv_desc">
+                <span class="cell_imform_tag">简介：</span>
+                <div class="cell_imform_desc">
+                  {{ anime.instruction }}
+                </div>
+              </div>
+            </div>
+            <div class="cell_imform_btns">
+              <a
+                class="nbutton2 cell_res_button"
+                href="@{/anime/{animeId}/index.html(animeId=${anime.id})}"
+                >资源详情</a
+              >
+              <a
+                class="nbutton2 cell_res_button"
+                href="@{/play/{animeId}(animeId=${anime.id})}"
+                >在线播放</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="baseblock">
+      <div class="blockcontent">
+        <span
+          class="asciifont result_count"
+          text="${data.pagination.totalCount +'纪录'}"
+        ></span>
+        <div
+          include="common/header::pager('/catalog',${data.pagination.pages},${data.pagination.current},${data.pagination.size})"
+        ></div>
+      </div>
+    </div>
   </div>
-  <RankPage />
 </template>
 
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
-import RankPage from "@/views/RankPage.vue";
 
 const data = ref({
   activeIndex: "1",
@@ -26,7 +134,7 @@ const data = ref({
         "电视动画《航海王》改编自尾田荣一郎创作的同名长篇少年漫画，动画由东映动画制作。 海贼王哥尔·D·罗杰在临死前曾留下了关于其毕生的财富“One Piece”的消息，由此引得群雄并起，众海盗们为了这笔传说中的巨额财富展开争夺，各种势力、政权不断交替，整个世界进入了动荡混乱的“大海贼时代”。 生长在东海某小村庄的路飞受到海贼香克斯的精神指引，决定成为一名出色的海盗。为了达成这个目标，并找到万众瞩目的One Piece，路飞踏上艰苦的旅程。一路上他遇到了无数磨难，也结识了索隆、娜美、山治、乌索普、罗宾等一众性格各异的好友。他们携手一同展开充满传奇色彩的大冒险。",
       districtId: 1,
       districtName: "日本",
-      coverUrl: "http://localhost/age/H6eec4b52f5ed449b8583e5ab518e7849p.jpg",
+      coverUrl: "https://cdn.aqdstatic.com:966/age/20160108_small.jpg",
       typeId: 1,
       typeName: "TV",
       originalName: "ONE PIECE",
@@ -166,4 +274,4 @@ onMounted(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped src="../assets/css/catalog.css"></style>

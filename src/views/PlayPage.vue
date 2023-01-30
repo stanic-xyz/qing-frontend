@@ -1,14 +1,9 @@
-<template>
-  <div id="container">
-    {{ data.activeIndex }}<br />
-    {{ $route.params.animeId }}
-  </div>
-</template>
-
 <script lang="ts" setup>
-import { reactive } from "vue";
+import { onMounted, ref, shallowRef } from "vue";
 
-const data = reactive({
+const el = ref();
+
+const data = shallowRef({
   activeIndex: "1",
   activeIndex2: "1",
   currentDate: new Date(),
@@ -38,5 +33,115 @@ const data = reactive({
     playHeat: "3953",
   },
 });
+
+onMounted(() => {
+  el.value; // <div>
+});
 </script>
-<style scoped></style>
+<template>
+  <div id="container">
+    <p>当前播放的动漫ID：{{ $route.params.animeId }}</p>
+    <div class="baseblock">
+      <div class="blocktitle">
+        <h4 id="detailname">
+          <router-link :to="`/anime/${data.animeInfo.id}`"
+            >{{ data.animeInfo.name }}
+          </router-link>
+        </h4>
+      </div>
+      <div class="line"></div>
+      <div class="blockcontent">
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <router-link :to="`'/anime/${data.animeInfo.id}`">
+                  <img
+                    id="play_poster_img"
+                    alt="番剧剧照"
+                    height="260"
+                    referrerpolicy="no-referrer"
+                    src="../assets/img/anime/伤物语.jpg"
+                    width="187"
+                  />
+                </router-link>
+              </td>
+              <td>
+                <ul id="play_imform">
+                  <li class="play_imform_kv">
+                    <span class="play_imform_tag">地区：</span>
+                    <span class="play_imform_val">{{
+                      data.animeInfo.districtName
+                    }}</span>
+                  </li>
+                  <li class="play_imform_kv">
+                    <span class="play_imform_tag">动画种类：</span>
+                    <span class="play_imform_val">{{
+                      data.animeInfo.typeName
+                    }}</span>
+                  </li>
+                  <li class="play_imform_kv">
+                    <span class="play_imform_tag">原作：</span>
+                    <span class="play_imform_val">{{
+                      data.animeInfo.author
+                    }}</span>
+                  </li>
+                  <li class="play_imform_kv">
+                    <span class="play_imform_tag">原版名称：</span>
+                    <span class="play_imform_val">{{
+                      data.animeInfo.originalName
+                    }}</span>
+                  </li>
+                  <li class="play_imform_kv">
+                    <span class="play_imform_tag">其它名称：</span>
+                    <span class="play_imform_val">{{
+                      data.animeInfo.otherName
+                    }}</span>
+                  </li>
+                  <li class="play_imform_kv">
+                    <span class="play_imform_tag">制作公司：</span>
+                    <span class="play_imform_val">{{
+                      data.animeInfo.company
+                    }}</span>
+                  </li>
+                  <li class="play_imform_kv">
+                    <span class="play_imform_tag">首播时间：</span>
+                    <span class="play_imform_val">{{
+                      data.animeInfo.premiereDate
+                    }}</span>
+                  </li>
+                  <li class="play_imform_kv">
+                    <span class="play_imform_tag">播放状态：</span>
+                    <span class="play_imform_val">{{
+                      data.animeInfo.playStatus
+                    }}</span>
+                  </li>
+                  <li class="play_imform_kv">
+                    <span class="play_imform_tag">剧情类型：</span>
+                    <span class="play_imform_val">{{
+                      data.animeInfo.tags
+                    }}</span>
+                  </li>
+                  <li class="play_imform_kv">
+                    <span class="play_imform_tag">更新时间：</span>
+                    <span class="play_imform_val">{{
+                      data.animeInfo.premiereDate
+                    }}</span>
+                  </li>
+                  <li class="play_imform_kv">
+                    <span class="play_imform_tag">官方网站：</span>
+                    <span class="play_imform_val">{{
+                      data.animeInfo.officialWebsite
+                    }}</span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped src="../assets/css/play.css"></style>

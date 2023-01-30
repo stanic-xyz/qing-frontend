@@ -37,7 +37,7 @@ const router = createRouter({
       component: () => import("../views/RankPage.vue"),
     },
     {
-      path: "/detail/:animeId",
+      path: "/anime/:animeId",
       name: "anime",
       component: () => import("../views/Detail.vue"),
     },

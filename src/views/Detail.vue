@@ -297,10 +297,10 @@ function sendReport() {
         </ul>
         <div id="main0" class="main0">
           <div
-            v-for="(playList, listIndex) in playList"
-            :key="listIndex"
+            v-for="(listInfo, index) in data.playList"
+            :key="index"
             :style="{
-              display: listIndex === currentPlayListId ? 'block' : 'none',
+              display: index === currentPlayListId ? 'block' : 'none',
             }"
             class="movurl"
           >
@@ -395,7 +395,7 @@ function sendReport() {
               留言板
             </button>
           </div>
-          <div id="recommend_block" class="switchBlock" hidden="">
+          <div id="recommend_block" class="switchBlock">
             <ul class="ul_li_a4">
               <li
                 v-for="(animeInfo, index) in relevantList"

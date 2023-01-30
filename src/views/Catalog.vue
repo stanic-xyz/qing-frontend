@@ -2,15 +2,10 @@
   <div id="container">
     <div class="baseblock">
       <div class="blockcontent" style="position: relative">
-        <span
-          class="asciifont result_count"
-          text="${data.pagination.totalCount +'纪录'}"
-        ></span>
-        <div
-          include="common/header::pager('/catalog',${data.pagination.pages},${data.pagination.current},${data.pagination.size})"
-        ></div>
+        <span class="asciifont result_count">{{ 1 }}记录</span>
       </div>
     </div>
+    <baseblock />
     <div class="baseblock">
       <div
         v-for="(anime, index) in data.animeInfoList"
@@ -22,7 +17,7 @@
           class="cell blockdiff2"
           each="anime,iterStat : ${data.animeList}"
         >
-          <router-link :to="`/detail/${anime.id}`" class="cell_poster">
+          <router-link :to="`/anime/${anime.id}`" class="cell_poster">
             <img
               :alt="anime.name ? anime.name : '暂无描述'"
               height="208px"
@@ -35,7 +30,7 @@
           >
           <div class="cell_imform">
             <div>
-              <router-link :to="`/detail/${anime.id}`" class="cell_imform_name"
+              <router-link :to="`/anime/${anime.id}`" class="cell_imform_name"
                 >{{ anime.name }}
               </router-link>
             </div>
@@ -84,16 +79,16 @@
               </div>
             </div>
             <div class="cell_imform_btns">
-              <a
+              <router-link
+                :to="`/play/${anime.id}`"
                 class="nbutton2 cell_res_button"
-                href="@{/anime/{animeId}/index.html(animeId=${anime.id})}"
-                >资源详情</a
-              >
-              <a
+                >资源详情
+              </router-link>
+              <router-link
+                :to="`play/${anime.id}`"
                 class="nbutton2 cell_res_button"
-                href="@{/play/{animeId}(animeId=${anime.id})}"
-                >在线播放</a
-              >
+                >在线播放
+              </router-link>
             </div>
           </div>
         </div>
@@ -101,13 +96,7 @@
     </div>
     <div class="baseblock">
       <div class="blockcontent">
-        <span
-          class="asciifont result_count"
-          text="${data.pagination.totalCount +'纪录'}"
-        ></span>
-        <div
-          include="common/header::pager('/catalog',${data.pagination.pages},${data.pagination.current},${data.pagination.size})"
-        ></div>
+        <span class="asciifont result_count">{{ 1 }}记录</span>
       </div>
     </div>
   </div>

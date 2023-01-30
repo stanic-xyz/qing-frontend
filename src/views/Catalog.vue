@@ -22,23 +22,22 @@
           class="cell blockdiff2"
           each="anime,iterStat : ${data.animeList}"
         >
-          <a
-            class="cell_poster"
-            href="${'/anime/'+anime.getId()+'/index.html'}"
-          >
+          <router-link :to="`/detail/${anime.id}`" class="cell_poster">
             <img
               :alt="anime.name ? anime.name : '暂无描述'"
               height="208px"
               loading="lazy"
               referrerpolicy="no-referrer"
-              src="../assets/img/anime/伤物语_small.jpg"
+              src="https://cdn.aqdstatic.com:966/age/20010004.jpg"
               width="150px"
             />
-            <span class="newname">第120话</span></a
+            <span class="newname">第120话</span></router-link
           >
           <div class="cell_imform">
             <div>
-              <a :href="anime.id" class="cell_imform_name">{{ anime.name }}</a>
+              <router-link :to="`/detail/${anime.id}`" class="cell_imform_name"
+                >{{ anime.name }}
+              </router-link>
             </div>
             <div class="cell_imform_kvs">
               <div class="cell_imform_kv">

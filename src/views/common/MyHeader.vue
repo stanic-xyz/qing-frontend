@@ -9,27 +9,27 @@ const data = reactive({
     {
       name: "首页",
       index: 1,
-      path: "/index/index.html",
+      path: "/index",
     },
     {
       name: "每日推荐",
       index: 2,
-      path: "/recommend/index.html",
+      path: "/recommend",
     },
     {
       name: "最近更新",
       index: 3,
-      path: "/update/index.html",
+      path: "/update",
     },
     {
       name: "目录",
       index: 4,
-      path: "/catalog/index.html",
+      path: "/catalog",
     },
     {
       name: "排行榜",
       index: 5,
-      path: "/rank/index.html",
+      path: "/rank",
     },
   ],
 });
@@ -46,7 +46,7 @@ function handleSelect(event: any) {
 <template>
   <div id="top">
     <div id="logo">
-      <router-link to="/index/index.html">AGE动漫</router-link>
+      <router-link to="/index">AGE动漫</router-link>
     </div>
     <div class="loginOut">
       <span class="svg_title svg_title_user"></span>

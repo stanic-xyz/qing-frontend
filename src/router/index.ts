@@ -7,7 +7,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/index/index.html",
+      path: "/index",
       name: "index",
       component: () => import("../views/Home.vue"),
     },
@@ -17,24 +17,34 @@ const router = createRouter({
       component: () => import("../views/Home.vue"),
     },
     {
-      path: "/recommend/index.html",
+      path: "/recommend",
       name: "recommend",
       component: () => import("../views/Recommend.vue"),
     },
     {
-      path: "/update/index.html",
+      path: "/update",
       name: "update",
       component: () => import("../views/UpdatePage.vue"),
     },
     {
-      path: "/catalog/index.html",
+      path: "/catalog",
       name: "catalog",
       component: () => import("../views/Catalog.vue"),
     },
     {
-      path: "/rank/index.html",
+      path: "/rank",
       name: "rank",
       component: () => import("../views/RankPage.vue"),
+    },
+    {
+      path: "/detail/:animeId",
+      name: "anime",
+      component: () => import("../views/Detail.vue"),
+    },
+    {
+      path: "/play/:animeId",
+      name: "play",
+      component: () => import("../views/PlayPage.vue"),
     },
     {
       path: "/about",

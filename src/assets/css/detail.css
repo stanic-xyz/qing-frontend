@@ -123,12 +123,12 @@
     margin-bottom: -1px;
 }
 
-.switchbtn_current {
+.switchButton_current {
     background-color: #282828;
     color: #e8e8e9;
 }
 
-.switchblock {
+.switchBlock {
     padding: 16px 12px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;

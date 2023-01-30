@@ -1,5 +1,8 @@
 <template>
-  <div id="container">{{ data }}</div>
+  <div id="container">
+    {{ data.activeIndex }}<br />
+    {{ $route.params.animeId }}
+  </div>
 </template>
 
 <script lang="ts" setup>

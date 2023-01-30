@@ -69,7 +69,7 @@ const relevantList = ref([
 ]);
 const currentPlayListId = ref(0);
 const isCommentBoard = ref(false);
-const chooseReportTypes = reactive([]);
+const chooseReportTypes = ref([]);
 const reportDetail = ref("");
 const episodeList = ref<any>([
   {

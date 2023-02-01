@@ -3,7 +3,6 @@ import type { AxiosInstance } from "axios";
 import axios from "axios";
 import type {
   CancelRequestSource,
-  QingHttpRequestConfig,
   RequestInterceptors,
 } from "@/utils/http/types";
 import { userInfoStore } from "@/stores/session";
@@ -11,16 +10,13 @@ import { userInfoStore } from "@/stores/session";
 moment.locale("zh-cn");
 
 // 相关配置请参考：www.axios-js.com/zh-cn/docs/#axios-http-config-1
-const defaultConfig: QingHttpRequestConfig = {
-  baseURL: "http://localhost:8080",
-  // 请求超时时间
-  timeout: 10000,
-  headers: {
-    Accept: "application/json, text/plain, */*",
-    "Content-Type": "application/json",
-    "X-Requested-With": "XMLHttpRequest",
-  },
-};
+// const defaultConfig: QingHttpRequestConfig = {
+//   baseURL: "http://localhost:8080",
+//   // 请求超时时间
+//   timeout: 10000,
+//
+//   headers: null,
+// };
 
 /**
  * 封装的请求对象
@@ -34,7 +30,7 @@ class QingHttp {
    */
   cancelRequestSourceList?: CancelRequestSource[];
   /** 初始化配置对象 */
-  private readonly initConfig: QingHttpRequestConfig;
+  // private readonly initConfig: QingHttpRequestConfig;
   // http 实例
   private instance: AxiosInstance;
   /**
@@ -48,8 +44,9 @@ class QingHttp {
   private interceptorsObj?: RequestInterceptors;
 
   constructor() {
-    this.instance = axios.create(defaultConfig);
-    this.initConfig = defaultConfig;
+    // this.instance = axios.create(defaultConfig);
+    this.instance = axios.create();
+    // this.initConfig = defaultConfig;
     this.instance.defaults.headers.common["Content-Type"] = "application/json";
     this.instance.defaults.headers.common["Accept"] =
       "application/json, text/plain, */*";

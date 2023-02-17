@@ -63,7 +63,6 @@ function changeEpisode(episodeId: any) {
 </script>
 <template>
   <div id="container">
-    <p>当前播放的动漫ID：{{ $route.params.animeId }}</p>
     <div class="baseblock">
       <div class="blocktitle">
         <h4 id="detailname">
@@ -230,26 +229,11 @@ function changeEpisode(episodeId: any) {
         </div>
       </div>
 
-      <div class="baseblock">
-        <div class="blockcontent">
-          <div id="wangpan-div" class="baseblock2">
-            <div class="blocktitle">网盘资源：</div>
-            <div class="blockcontent">
-              <span class="res_links">
-                <a class="res_links_a" href="/testtt" target="_blank"
-                  >[TV 01-12+OVA BD-1080P]</a
-                >
-                <span class="res_links_pswd_tag">(提取码:</span>
-                <span class="res_links_pswd">1407)</span></span
-              >
-              <br />
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="spaceblock1"></div>
       <div class="baseblock">
-        <div class="blocktitle">看过《NULL &amp; PETA》的人还看过：</div>
+        <div class="blocktitle">
+          看过《{{ data.animeInfo.name }}》的人还看过：
+        </div>
         <div class="line"></div>
         <div class="blockcontent">
           <ul class="ul_li_a8">
@@ -329,7 +313,6 @@ function changeEpisode(episodeId: any) {
             <hr class="hrspace2" />
             <div id="current_comment_page" page=""></div>
           </ul>
-
           <!-- 评论翻页 -->
           <div class="spaceblock1"></div>
           <ul class="comment_page">

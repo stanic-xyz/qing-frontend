@@ -5,11 +5,11 @@
       <div class="blockContent">
         <ul class="ul_li_a6">
           <li
-            v-for="animeInfo in data.animeInfoList"
-            :key="animeInfo.id"
+            v-for="(animeInfo, index) in data.animeInfoList"
+            :key="index"
             class="anime_icon2"
           >
-            <router-link :to="{ path: 'detail', query: { id: animeInfo.id } }">
+            <router-link :to="`/anime/${animeInfo.id}`">
               <img
                 :alt="animeInfo.name"
                 :src="animeInfo.coverUrl"

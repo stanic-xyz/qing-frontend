@@ -1,24 +1,11 @@
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
-import { getAnimeList } from "@/api/anime";
+import { Anime, getAnimeList } from "@/api/anime";
+import AnimeInfo from "@/views/anime/AnimeInfo.vue";
 
 const pagination = ref({ current: 1, pageSize: 12, total: 0 });
 
-class Anime {
-  animeId?: number;
-  animeName?: string;
-  coverUrl?: string;
-  premiereDate?: Date;
-}
-
-const animeInfoList = ref([
-  {
-    animeId: 0,
-    animeName: "动漫一",
-    coverUrl: "http",
-    premiereDate: "2022-12-01",
-  },
-]);
+const animeInfoList = ref<Anime[]>([]);
 
 const weekList = ref([
   {
@@ -52,7 +39,7 @@ const weekList = ref([
 ]);
 const productList = ref<Anime[]>([]);
 const dataLoading = ref<boolean>(true);
-const activeWeekIndex = ref(1);
+const activeWeekIndex = ref<Number>(0);
 
 interface AnimeDetailInfo {
   animeName?: string;
@@ -71,13 +58,16 @@ onMounted(() => {
   getCardListData();
   for (let i = 0; i < 14; i++) {
     animeInfoList.value.push({
-      animeId: i,
+      animeId: i + "",
       animeName: "str",
       coverUrl: "http",
-      premiereDate: "2022-12-01",
     });
   }
 });
+
+function changeWeek(id: Number) {
+  activeWeekIndex.value = id;
+}
 </script>
 
 <template>
@@ -85,18 +75,18 @@ onMounted(() => {
     <div id="container">
       <div class="spaceblock1"></div>
       <div class="div_right baseblock">
-        <div class="blocktitle">每周放送列表</div>
+        <div class="blocktitle">周播列表</div>
         <div class="blockcontent">
           <ul id="new_anime_btns">
             <li
-              v-for="week in weekList"
+              v-for="(week, index) in weekList"
               id="new_anime_page_btn_1"
-              :key="week.weekId"
+              :key="index"
               :class="{
-                new_anime_btn_current: activeWeekIndex === week.weekId,
+                new_anime_btn_current: activeWeekIndex === index,
               }"
               class="new_anime_btn highlighttag"
-              @click="activeWeekIndex = week.weekId"
+              @click="changeWeek(index)"
             >
               {{ week.name }}
             </li>
@@ -104,18 +94,18 @@ onMounted(() => {
 
           <ul id="new_anime_page">
             <li
-              v-for="anime in animeInfoList"
-              :key="anime.animeId"
+              v-for="(anime, index) in animeInfoList"
+              :key="index"
               class="one_new_anime"
             >
               <a
+                :href="`/anime/${anime.animeId}/index.html'`"
                 class="one_new_anime_name"
-                href="@{'/anime/'+${anime.id}+'/index.html'}"
                 >{{ anime.animeName }}</a
               >
               <a
+                :href="`/anime/${anime.id}/index.html'}`"
                 class="one_new_anime_ji"
-                href="'/anime/'+${anime.id}+'/index.html'}"
                 >{{ anime.premiereDate }}</a
               >
               <div v-show="true" class="one_anime_new">new!</div>
@@ -154,28 +144,7 @@ onMounted(() => {
               :key="index"
               class="anime_icon1"
             >
-              <a href="/anime/anime.id/index.html'}">
-                <img
-                  :alt="anime.animeName"
-                  :alt-title="anime.animeName"
-                  :title="anime.animeName"
-                  class="anime_icon1_img"
-                  height="165px"
-                  loading="lazy"
-                  referrerpolicy="no-referrer"
-                  src="../assets/img/anime/伤物语_small.jpg"
-                  width="120px"
-                />
-                <span class="anime_icon1_name1" text="${'[TV 01-12]'}">{{
-                  anime
-                }}</span></a
-              >
-              <a
-                class="anime_icon1_name_a"
-                href="@{'detail/'+${anime.id}+'/index/index.html'}"
-              >
-                <div class="anime_icon1_name" text="${anime.name}"></div>
-              </a>
+              <AnimeInfo :anime="anime"></AnimeInfo>
             </li>
           </ul>
         </div>
@@ -190,27 +159,7 @@ onMounted(() => {
               :key="anime.animeId"
               class="anime_icon1"
             >
-              <a :href="'/anime/' + anime.animeId + '/index.html'">
-                <img
-                  alt="伤物语_small"
-                  class="anime_icon1_img"
-                  height="165px"
-                  loading="lazy"
-                  referrerpolicy="no-referrer"
-                  src="../assets/img/anime/伤物语_small.jpg"
-                  title="${'[TV 01-12]'}"
-                  width="120px"
-                />
-                <span class="anime_icon1_name1" text="${'[TV 01-12]'}"
-                  >[TV 01-12]</span
-                ></a
-              >
-              <a
-                class="anime_icon1_name_a"
-                href="@{'detail/'+${anime.id}+'/index/index.html'}"
-              >
-                <div class="anime_icon1_name" text="${anime.name}"></div>
-              </a>
+              <AnimeInfo :anime="anime"></AnimeInfo>
             </li>
           </ul>
         </div>

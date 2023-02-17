@@ -1,13 +1,26 @@
-<template>
-  <div>{{ data.items }}}</div>
-</template>
-
 <script lang="ts" setup>
-import { onMounted, reactive } from "vue";
+import { onMounted, PropType, reactive } from "vue";
+import type { Anime } from "@/api/anime";
 
-onMounted(() => {
-  console.log("Set the initial number of items");
-  console.log(data.items.length);
+onMounted(() => {});
+
+const props = defineProps({
+  anime: {
+    type: Object as PropType<Anime>,
+    required: false,
+    default() {
+      return {
+        animeId: "123123",
+        animeName: "测试名称",
+        coverUrl: "https://localhost:8088/img/test.jpg",
+        premiereDate: "2020-12-12 12:30:30",
+      } as Anime;
+    },
+    name: {
+      type: String,
+      default: "动漫名称",
+    },
+  },
 });
 
 let data = reactive({
@@ -87,5 +100,29 @@ let data = reactive({
   },
 });
 </script>
+
+<template>
+  <div>
+    <a :href="`/anime/${props.anime.animeId}/index.html'`">
+      <img
+        :alt="props.anime.animeName"
+        :title="props.anime.animeName"
+        class="anime_icon1_img"
+        height="165px"
+        loading="lazy"
+        referrerpolicy="no-referrer"
+        src="../../assets/img/anime/伤物语_small.jpg"
+        width="120px"
+      />
+      <span class="anime_icon1_name1"> {{ props.anime.animeName }}</span></a
+    >
+    <a
+      :href="`detail/${props.anime.animeId}/index/index.html`"
+      class="anime_icon1_name_a"
+    >
+      <div class="anime_icon1_name">{{ props.anime.animeName }}</div>
+    </a>
+  </div>
+</template>
 
 <style scoped></style>

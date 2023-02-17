@@ -15,3 +15,10 @@ export const getAnimeList = (data?: object) => {
     pageSize: 2,
   });
 };
+
+export interface Anime {
+  animeId: String;
+  animeName?: String;
+  coverUrl?: String;
+  premiereDate?: String;
+}

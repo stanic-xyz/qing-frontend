@@ -29,7 +29,7 @@ const router = createRouter({
     {
       path: "/catalog",
       name: "catalog",
-      component: () => import("../views/Catalog.vue"),
+      component: () => import("../views/catlog/Catalog.vue"),
     },
     {
       path: "/rank",

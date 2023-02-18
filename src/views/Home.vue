@@ -58,9 +58,24 @@ onMounted(() => {
   getCardListData();
   for (let i = 0; i < 14; i++) {
     animeInfoList.value.push({
-      animeId: i + "",
-      animeName: "str",
-      coverUrl: "http",
+      id: 3,
+      name: "金好理五候",
+      instruction: "ex est fugiat",
+      districtId: 90,
+      districtName: "持增该山克布",
+      coverUrl:
+        "http://localhost:8080/img/anime/%E4%BC%A4%E7%89%A9%E8%AF%AD.jpg",
+      typeId: 29,
+      typeName: "间大决据手阶",
+      originalName: "劳特五感长",
+      otherName: "联统系在置克",
+      author: "consectetur veniam adipisicing Lorem",
+      company: "magna ad sint id consequat",
+      playStatus: "FINISHED",
+      plotType: "pariatur sint sit",
+      tags: ["pariatur exercitation irure consequat ad"],
+      officialWebsite: "labore consectetur dolore ullamco culpa",
+      playHeat: "sit",
     });
   }
 });
@@ -101,12 +116,12 @@ function changeWeek(id: Number) {
               <a
                 :href="`/anime/${anime.animeId}/index.html'`"
                 class="one_new_anime_name"
-                >{{ anime.animeName }}</a
+                >{{ anime.name }}</a
               >
               <a
                 :href="`/anime/${anime.id}/index.html'}`"
                 class="one_new_anime_ji"
-                >{{ anime.premiereDate }}</a
+                >{{ anime.name }}</a
               >
               <div v-show="true" class="one_anime_new">new!</div>
             </li>
@@ -148,10 +163,7 @@ function changeWeek(id: Number) {
             </li>
           </ul>
         </div>
-        <hr class="hrspace clear" style="width: 98%" />
-        <div class="blocktitle">
-          <a href="update">最近更新</a>
-        </div>
+        <BlockTitle name="最近播放">最近播放</BlockTitle>
         <div class="blockcontent">
           <ul class="ul_li_a5">
             <li

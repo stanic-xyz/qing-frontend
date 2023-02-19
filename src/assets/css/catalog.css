@@ -56,7 +56,7 @@
 
 
 .search-list {
-    font-family: arial;
+    font-family: arial, serif;
     width: auto;
     height: auto;
     display: inline-block;
@@ -177,46 +177,6 @@
 
     .result_count {
         position: relative;
-    }
-
-    .cell {
-        width: 99%;
-        padding: 12px 0 0 4px;
-    }
-
-    .cell .cell_poster {
-        width: 36%;
-        height: auto;
-    }
-
-    .cell_poster img {
-        width: 100% !important;
-        height: auto !important;
-    }
-
-    .cell_imform {
-        width: 59%;
-    }
-
-    .cell_imform_kv {
-        margin: 0;
-        min-width: 90%;
-    }
-
-    .cell_imform_kv:nth-child(2),
-    .cell_imform_kv:nth-child(3),
-    .cell_imform_kv:nth-child(10),
-    .cell_imform_kv:nth-child(11) {
-        display: none;
-    }
-
-    .cell_imform_btns {
-        margin-top: 4px;
-        padding: 4px;
-    }
-
-    .nbutton2 {
-        padding: 4px;
     }
 }
 

@@ -7,3 +7,10 @@ export const getLogin = (username: string, password: string) => {
     password: password,
   });
 };
+
+export const exchangeToken = (code: string, state: string) => {
+  return qingHttp.post("api/authorize/auth/token", {
+    code: code,
+    state: state,
+  });
+};

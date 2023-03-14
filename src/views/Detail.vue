@@ -1,7 +1,8 @@
 <script lang="ts" setup>
-import { reactive, ref } from "vue";
+import { onMounted, reactive, ref } from "vue";
+import axios from "axios";
 
-const data = reactive({
+const data = ref({
   activeIndex: "1",
   activeIndex2: "1",
   currentDate: new Date(),
@@ -42,6 +43,24 @@ const data = reactive({
       name: "反馈类型1",
     },
   ],
+});
+
+onMounted(() => {
+  const instance = axios.create({
+    baseURL: "https://mock.apifox.cn/m1/1876271-0-default",
+    timeout: 1000,
+    headers: { apifoxToken: "6JQ7DXmRywJ8fsffzsMfLqLcgGMcwuvg" },
+  });
+
+  instance
+    .get("/animeInfo/v1/findById/" + "123123")
+    .then(function (response) {
+      data.value = response.data.result;
+      console.log(data.value);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 });
 
 const relevantList = ref([

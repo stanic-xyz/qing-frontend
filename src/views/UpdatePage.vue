@@ -5,8 +5,12 @@
       <div class="blockContent">
         <div class="spaceBlock"></div>
         <ul class="ul_li_a6">
-          <li v-for="anime in animeList" :key="anime.id" class="anime_icon2">
-            <router-link :to="{ path: '/detail', query: { id: anime.id } }">
+          <li
+            v-for="(anime, index) in animeList"
+            :key="index"
+            class="anime_icon2"
+          >
+            <router-link :to="`/detail/${anime.id}`">
               <img
                 :alt="anime.name"
                 :src="anime.coverUrl"
@@ -19,7 +23,7 @@
               <span class="anime_icon1_name1">02:00 第10话</span>
             </router-link>
             <h4 class="anime_icon2_name">
-              <router-link :to="{ path: '/detail', query: { id: anime.id } }">
+              <router-link :to="`/detail/${anime.id}`">
                 {{ anime.name }}
               </router-link>
             </h4>

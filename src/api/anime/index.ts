@@ -18,22 +18,22 @@ export const getAnimeList = (data?: object) => {
 
 export interface Anime {
   id: Number;
-  animeId?: String;
-  name?: String;
-  coverUrl?: String;
-  premiereDate?: String;
+  animeId?: string;
+  name?: string;
+  coverUrl?: string;
+  premiereDate?: string;
   districtId?: Number;
-  instruction?: String;
-  districtName?: String;
+  instruction?: string;
+  districtName?: string;
   typeId?: Number;
-  typeName?: String;
-  originalName?: String;
-  otherName?: String;
-  author?: String;
-  company?: String;
-  playStatus?: String;
-  plotType?: String;
-  tags?: Array<String>;
-  officialWebsite?: String;
-  playHeat?: String;
+  typeName?: string;
+  originalName?: string;
+  otherName?: string;
+  author?: string;
+  company?: string;
+  playStatus?: string;
+  plotType?: string;
+  tags?: Array<string>;
+  officialWebsite?: string;
+  playHeat?: string;
 }

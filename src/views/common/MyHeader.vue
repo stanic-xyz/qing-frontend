@@ -50,9 +50,20 @@ function handleSelect(event: any) {
     </div>
     <div class="loginOut">
       <span class="svg_title svg_title_user"></span>
-      <router-link id="comment_user" class="loginOut_btn2" to="/login"
+      <a
+        id="comment_user"
+        class="loginOut_btn2"
+        href="http://localhost:8080/api/authorize/auth/login"
+        target="_self"
         >登陆
-      </router-link>
+      </a>
+      <a
+        id="comment_user"
+        class="loginOut_btn2"
+        href="http://localhost:8080/api/authorize/auth/logout"
+        target="_self"
+        >退出
+      </a>
     </div>
   </div>
   <div id="nav">

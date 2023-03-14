@@ -5,7 +5,7 @@
         <span class="asciifont result_count">{{ 1 }}记录</span>
       </div>
     </div>
-    <div v-for="anime in animeInfoList" :key="anime.id">
+    <div v-for="(anime, index) in animeInfoList" :key="index">
       <CatalogItem :anime="anime"></CatalogItem>
     </div>
     <div class="baseblock">

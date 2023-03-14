@@ -45,7 +45,9 @@ class QingHttp {
 
   constructor() {
     // this.instance = axios.create(defaultConfig);
-    this.instance = axios.create();
+    this.instance = axios.create({
+      baseURL: "http://localhost:8080",
+    });
     // this.initConfig = defaultConfig;
     this.instance.defaults.headers.common["Content-Type"] = "application/json";
     this.instance.defaults.headers.common["Accept"] =

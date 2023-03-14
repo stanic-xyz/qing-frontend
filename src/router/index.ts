@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Activity from "@/views/Activity.vue";
 import LoginPage from "@/views/login/LoginPage.vue";
 import ExceptionPage from "@/views/exception/ExceptionPage.vue";
+import AuthingLogin from "@/views/login/AuthingLogin.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -47,8 +48,8 @@ const router = createRouter({
       component: () => import("../views/PlayPage.vue"),
     },
     {
-      path: "/about",
-      name: "about",
+      path: "/profile",
+      name: "profile",
       component: () => import("../views/About.vue"),
     },
     {
@@ -59,6 +60,7 @@ const router = createRouter({
 
     { path: "/users/:id", component: Activity },
     { path: "/login", component: LoginPage },
+    { path: "/login/authing", component: AuthingLogin },
     // 将匹配所有内容并将其放在 `$route.params.pathMatch` 下
     { path: "/:pathMatch(.*)*", name: "NotFound", component: ExceptionPage },
   ],

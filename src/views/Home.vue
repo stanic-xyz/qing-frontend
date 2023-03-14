@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
-import { Anime, getAnimeList } from "@/api/anime";
+import type { Anime } from "@/api/anime";
+import { getAnimeList } from "@/api/anime";
 import AnimeInfo from "@/views/anime/AnimeInfo.vue";
 
 const pagination = ref({ current: 1, pageSize: 12, total: 0 });
@@ -132,12 +133,12 @@ function changeWeek(id: Number) {
         <div class="blockcontent">
           <ul id="anime_update">
             <li
-              v-for="anime in animeInfoList"
-              :key="anime.animeId"
+              v-for="(anime, index) in animeInfoList"
+              :key="index"
               class="one_new_anime"
             >
               <a class="one_new_anime_name" style="width: 220px">
-                {{ anime.animeName }}
+                {{ anime.name }}
               </a>
               <span
                 class="anime_update_date asciifont"
@@ -167,8 +168,8 @@ function changeWeek(id: Number) {
         <div class="blockcontent">
           <ul class="ul_li_a5">
             <li
-              v-for="anime in animeInfoList"
-              :key="anime.animeId"
+              v-for="(anime, index) in animeInfoList"
+              :key="index"
               class="anime_icon1"
             >
               <AnimeInfo :anime="anime"></AnimeInfo>

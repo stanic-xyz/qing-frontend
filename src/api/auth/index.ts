@@ -14,3 +14,9 @@ export const exchangeToken = (code: string, state: string) => {
     state: state,
   });
 };
+
+export const logOut = (accessToken: string) => {
+  return qingHttp.get("api/authorize/auth/logout", {
+    token: accessToken,
+  });
+};

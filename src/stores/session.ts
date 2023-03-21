@@ -1,20 +1,38 @@
 import { defineStore } from "pinia";
-import moment from "moment";
+import { logOut } from "@/api/auth";
 
 export const userInfoStore = defineStore("userInfo", {
   state: () => {
     return {
+      accessToken: "",
       username: "username",
       nickname: "Static",
       avatar: "http://dummyimage.com/100x100",
-      token:
-        "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XHJcbiAgXCJ1c2VybmFtZVwiIDogXCLpkrHoibNcIixcclxuICBcIm5pY2tuYW1lXCIgOiBcIuWRqOW8ulwiLFxyXG4gIFwiYXZhdGFyXCIgOiBcImh0dHA6Ly9kdW1teWltYWdlLmNvbS8xMDB4MTAwXCIsXHJcbiAgXCJ0b2tlblwiIDogbnVsbFxyXG59IiwiYXV0aCI6ImF1dGhvcml0aWVzIiwidXNlcklkIjoiIiwidXNlckFnZW50IjoiIiwiZXhwIjoxNjczMzIxNzg3fQ.5FMCpUiClFYKnKb6i8jng4ZiOxGjaT_9xqyK0CmCxG3otikZTQvQeJxsYX1eJ9C_xrCGcWH4FHTHSyu4GyysGw",
-      expireAt: moment(),
+      expireAt: null,
+      idToken: "id_token",
+      tokenType: "Bearer",
     };
   },
   // 也可以这样定义
   // state: () => ({ count: 0 })
   actions: {
-    login() {},
+    login() {
+      console.log("登录功能");
+    },
+    isLoggedIn(): boolean {
+      console.log(this.accessToken);
+      console.log("判断用户是否登录", this.avatar);
+      let result = false;
+      if (typeof this.accessToken == "undefined" || this.accessToken) {
+        result = false;
+      }
+      console.log("当前登录状态", result);
+      return result;
+    },
+    logOut(): Promise<any> {
+      console.log("退出登录");
+      this.$reset();
+      return logOut(this.accessToken);
+    },
   },
 });

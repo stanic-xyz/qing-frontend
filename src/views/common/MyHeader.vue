@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { onMounted, reactive } from "vue";
 import Notification from "@/views/common/Notification.vue";
+import { userInfoStore } from "@/stores/session";
 
 const data = reactive({
   time: new Date(),
@@ -41,6 +42,20 @@ onMounted(() => {
 function handleSelect(event: any) {
   data.activeIndex = event;
 }
+
+function handleLogin(event: any) {
+  location.href = "http://localhost:8080/api/authorize/auth/login";
+}
+
+function handleLogout() {
+  const userInfoSto = userInfoStore();
+  userInfoSto.logOut().then((response) => {
+    console.log("退出登录成功", response);
+  });
+
+  console.log(userInfoSto.accessToken);
+  // router.push("/login");
+}
 </script>
 
 <template>
@@ -50,20 +65,12 @@ function handleSelect(event: any) {
     </div>
     <div class="loginOut">
       <span class="svg_title svg_title_user"></span>
-      <a
-        id="comment_user"
-        class="loginOut_btn2"
-        href="http://localhost:8080/api/authorize/auth/login"
-        target="_self"
-        >登陆
-      </a>
-      <a
-        id="comment_user"
-        class="loginOut_btn2"
-        href="http://localhost:8080/api/authorize/auth/logout"
-        target="_self"
-        >退出
-      </a>
+      <button id="comment_user" class="loginOut_btn2" @click="handleLogin">
+        登陆
+      </button>
+      <button id="comment_user" class="loginOut_btn2" @click="handleLogout">
+        退出
+      </button>
     </div>
   </div>
   <div id="nav">

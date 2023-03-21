@@ -1,54 +1,59 @@
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
 import { userInfoStore } from "@/stores/session";
-import { exchangeToken, getLogin } from "@/api/auth";
+import { exchangeToken } from "@/api/auth";
 import { useRouter } from "vue-router";
 
 // “ref”是用来存储值的响应式数据源。
 // 理论上我们在展示该字符串的时候不需要将其包装在 ref() 中，
 // 但是在下一个示例中更改这个值的时候，我们就需要它了。
-const username = ref("string");
-const password = ref("string");
 
 onMounted(() => {
   console.log("登录中");
   const router = useRouter();
 
-  var code1 = router.currentRoute.value.query.code;
-  if (code1 === null) {
+  const code = router.currentRoute.value.query.code;
+  if (code === null) {
     alert("参数错误");
     return;
   }
-  console.log("query", code1);
-  console.log("query", router.currentRoute.value.query.state);
 
-  exchangeToken(code1.toString(), "test").then(function (response) {
-    console.log("发起请求成功", response);
-    const userInfoSto = userInfoStore();
-    userInfoSto.token = response.data.access_token;
-    userInfoSto.username = "user那么少";
-    alert(JSON.stringify(response.data));
-    router.push("/profile");
-  });
-});
+  const state = router.currentRoute.value.query.state;
+  if (state === null) {
+    alert("参数错误");
+    return;
+  }
 
-function handleBtn() {
-  getLogin(username.value, password.value)
+  console.log("query", code);
+  console.log("state", state);
+
+  exchangeToken(code.toString(), state.toString())
     .then(function (response) {
-      console.log("发起请求成功了", response);
+      console.debug("response", response.data.access_token);
+
       const userInfoSto = userInfoStore();
-      userInfoSto.token = response.data.data.token;
-      userInfoSto.username = "user那么少";
+
+      userInfoSto.$reset();
+
+      userInfoSto.login();
+      userInfoSto.$patch((state) => {
+        state.accessToken = response.data.access_token;
+        state.expireAt = response.data.expires_in;
+        state.idToken = response.data.id_token;
+      });
+      console.debug("本地存储信息", userInfoSto);
+      router.push("/profile");
     })
-    .catch(function (error) {
-      console.log(error);
+    .catch((error) => {
+      console.log("错误", error);
+      alert("登录失败");
     });
-}
+});
 </script>
 
 <template>
   <div id="container">
-    <h1>登录中</h1>
+    <h1>登录中。。。</h1>
   </div>
 </template>
 

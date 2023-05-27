@@ -14,7 +14,7 @@ function handleBtn() {
     .then(function (response) {
       console.log("发起请求成功了", response);
       const userInfoSto = userInfoStore();
-      userInfoSto.token = response.data.data.token;
+      userInfoSto.accessToken = response.data.data.token;
       userInfoSto.username = "user那么少";
     })
     .catch(function (error) {
